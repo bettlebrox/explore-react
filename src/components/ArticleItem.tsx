@@ -1,6 +1,5 @@
 import { Article } from "../interfaces/Article";
 import {
-  Button,
   Card,
   CardActionArea,
   CardActions,
@@ -11,7 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getFormattedDate } from "../utils/format";
 import { iconThemeTypeMap } from "../utils/map";
 
 export function ArticleItem({
