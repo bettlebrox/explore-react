@@ -4,12 +4,9 @@ import {
   CardActionArea,
   CardContent,
   CardHeader,
-  IconButton,
   Link,
   Typography,
 } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { iconThemeTypeMap } from "../utils/map";
 import { getBreadcrumbs } from "../utils/format";
 
 export function ArticleItem({
@@ -21,7 +18,7 @@ export function ArticleItem({
 }) {
   const actions = <></>;
   let content = <></>;
-  const favicon = <img src={'https://logo.clearbit.com/'+getBreadcrumbs(article.url)+'?size=28'}></img>;
+  const favicon = <img src={'https://logo.clearbit.com/'+getBreadcrumbs(article.url)[0]+'?size=28'}></img>;
   if (expanded) {
     content = (
       <CardContent>
@@ -38,6 +35,7 @@ export function ArticleItem({
           title={<Typography>{article.original_title}</Typography>}
           align="left"
           avatar={favicon}
+          subheader={getBreadcrumbs(article.url).join(" > ")}
         />
         {content}
         {actions}

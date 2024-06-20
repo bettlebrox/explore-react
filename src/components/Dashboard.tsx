@@ -3,7 +3,7 @@ import { DassieItem } from "../interfaces/Theme";
 import { Grid } from "@mui/material";
 import { ThemeGroup } from "./ThemeList";
 import axios from "axios";
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery } from "react-query";
 
 const getRecentThemes = async () => {
   const response = await axios.get(
