@@ -2,8 +2,24 @@ import { useState } from "react";
 import { DassieItem } from "../interfaces/Theme";
 import { Grid } from "@mui/material";
 import { ThemeGroup } from "./ThemeList";
+import axios from "axios";
+import { useQuery, useQueryClient } from "react-query";
 
+const getRecentThemes = async () => {
+  const response = await axios.get(
+    "http://127.0.0.1:3000/api/themes?sortField=updated_at&max=5",
+  );
+
+  return response.data;
+};
 export function Dashboard(){
+  const {
+    data: recentThemes,
+    error,
+    isLoading,
+  } = useQuery("themesData", getRecentThemes);
+   /*const error = "error";
+   const isLoading = false;
     const [recentThemes] = useState<DassieItem[]>([
       {
         id: "a86b7d0b-e1af-4d0d-8231-e5ea4cb433c3",
@@ -34,7 +50,7 @@ export function Dashboard(){
         updated_at: "2024-06-17T14:21:22.330241",
         source: "top",
       },
-    ]);
+    ]);*/
     const [topThemes] = useState<DassieItem[]>([
       {
         id: "fddfc95b-a847-4a70-9f4c-903f0fe5ca03",
@@ -70,10 +86,10 @@ export function Dashboard(){
       <>
         <Grid container spacing={1}>
           <Grid item={true} xs={6}>
-            <ThemeGroup title="Top Themes" themes={topThemes} expanded/>
+            <ThemeGroup title="Top Themes" themes={topThemes} status={{error:error,isLoading:isLoading}} expanded/>
           </Grid>
           <Grid item={true} xs={6}>
-            <ThemeGroup title="Recent Themes" themes={recentThemes} expanded/>
+            <ThemeGroup title="Recent Themes" themes={recentThemes} status={{error:error,isLoading:isLoading}} expanded/>
           </Grid>
         </Grid>
       </>

@@ -2,7 +2,6 @@ import { Article } from "../interfaces/Article";
 import {
   Card,
   CardActionArea,
-  CardActions,
   CardContent,
   CardHeader,
   IconButton,
@@ -11,6 +10,7 @@ import {
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { iconThemeTypeMap } from "../utils/map";
+import { getBreadcrumbs } from "../utils/format";
 
 export function ArticleItem({
   article,
@@ -19,9 +19,9 @@ export function ArticleItem({
   article: Article;
   expanded?: boolean;
 }) {
-  const actions = <CardActions></CardActions>;
-  let content = <CardContent></CardContent>;
-  let avatar: JSX.Element | null = null;
+  const actions = <></>;
+  let content = <></>;
+  const favicon = <img src={'https://logo.clearbit.com/'+getBreadcrumbs(article.url)+'?size=28'}></img>;
   if (expanded) {
     content = (
       <CardContent>
@@ -30,11 +30,6 @@ export function ArticleItem({
         </Typography>
       </CardContent>
     );
-    avatar = (
-      <IconButton>
-        <FontAwesomeIcon icon={iconThemeTypeMap[article.source]} />
-      </IconButton>
-    );
   }
   return (
     <Card className="theme-item">
@@ -42,7 +37,7 @@ export function ArticleItem({
         <CardHeader
           title={<Typography>{article.original_title}</Typography>}
           align="left"
-          avatar={avatar}
+          avatar={favicon}
         />
         {content}
         {actions}

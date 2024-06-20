@@ -99,10 +99,8 @@ export function ThemeDetail() {
           <Card>
             <CardHeader
               title={
-                <Typography variant="h5">
-                {theme.original_title}
-                </Typography>
-            }
+                <Typography variant="h5">{theme.original_title}</Typography>
+              }
               align="left"
               subheader={
                 <>
@@ -125,30 +123,47 @@ export function ThemeDetail() {
                 {theme.summary}
               </Typography>
             </CardContent>
-            <CardActions>
-            </CardActions>
+            <CardActions></CardActions>
           </Card>
         </Grid>
         <Grid item={true} xs={6}>
           <Card>
             <CardContent>
-              <ThemeGroup  themes={theme.recurrent} title="Agreements"></ThemeGroup>
+              <ThemeGroup
+                themes={theme.recurrent}
+                title="Agreements"
+                status={{
+                  error: undefined,
+                  isLoading: false,
+                }}
+              ></ThemeGroup>
             </CardContent>
           </Card>
         </Grid>
         <Grid item={true} xs={6}>
           <Card>
             <CardContent>
-              <ThemeGroup  themes={theme.sporadic} title="Disagreements"></ThemeGroup>
+              <ThemeGroup
+                themes={theme.sporadic}
+                title="Disagreements"
+                status={{
+                  error: undefined,
+                  isLoading: false,
+                }}
+              ></ThemeGroup>
             </CardContent>
           </Card>
         </Grid>
         <Grid item={true} xs={12}>
-            <Card>
-                <CardContent>
-                    <ArticleGroup articles={theme.related} title={"Related Articles"} expanded></ArticleGroup>
-                </CardContent>
-            </Card>
+          <Card>
+            <CardContent>
+              <ArticleGroup
+                articles={theme.related}
+                title={"Related Articles"}
+                expanded
+              ></ArticleGroup>
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
     </>

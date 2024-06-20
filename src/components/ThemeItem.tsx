@@ -20,8 +20,8 @@ export function ThemeItem({
   theme: DassieItem;
   expanded?: boolean;
 }) {
-  const actions = <CardActions></CardActions>;
-  let content = <CardContent></CardContent>;
+  const actions = <></>;
+  let content = <></>;
   let avatar: JSX.Element | null = null;
   if (expanded) {
     content = (
@@ -38,7 +38,7 @@ export function ThemeItem({
     );
   }
   return (
-    <Card className="theme-item" variant="outlined" raised>
+    <Card className="theme-item" variant="outlined">
       <CardActionArea component={Link} to={"/theme/" + theme.title}>
         <CardHeader
           title={<Typography>{theme.original_title}</Typography>}
