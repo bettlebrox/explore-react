@@ -15,6 +15,7 @@ import { iconThemeTypeMap } from "../utils/map";
 import { RelSummary } from "./RelSummary";
 import { ThemeGroup } from "./ThemeList";
 import { ArticleGroup } from "./ArticleList";
+import { Chatbot } from "./Chatbot";
 
 interface ThemeDetail extends Theme {
   related: Article[];
@@ -160,8 +161,14 @@ export function ThemeDetail() {
               <ArticleGroup
                 articles={theme.related}
                 title={"Related Articles"}
-                expanded
               ></ArticleGroup>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item={true} xs={12}>
+          <Card>
+            <CardContent>
+              <Chatbot context={theme.related}></Chatbot>
             </CardContent>
           </Card>
         </Grid>

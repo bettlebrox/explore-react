@@ -2,8 +2,6 @@ import { DassieItem } from "../interfaces/Theme";
 import {
   Card,
   CardActionArea,
-  CardActions,
-  CardContent,
   CardHeader,
   IconButton,
   Typography,
@@ -21,20 +19,23 @@ export function ThemeItem({
   expanded?: boolean;
 }) {
   const actions = <></>;
-  let content = <></>;
+  let subheader = <></>;
   let avatar: JSX.Element | null = null;
   if (expanded) {
-    content = (
-      <CardContent>
-        <Typography variant="body2" align="left">
-          {theme.summary}
-        </Typography>
-      </CardContent>
-    );
     avatar = (
       <IconButton>
         <FontAwesomeIcon icon={iconThemeTypeMap[theme.source]} />
       </IconButton>
+    );
+    subheader = (
+      <>
+        <Typography variant="body2" align="left">
+          {getFormattedDate(theme.created_at)}
+        </Typography>
+        <Typography variant="body2" align="left">
+          {theme.summary}
+        </Typography>
+      </>
     );
   }
   return (
@@ -43,10 +44,9 @@ export function ThemeItem({
         <CardHeader
           title={<Typography>{theme.original_title}</Typography>}
           align="left"
-          subheader={expanded ? getFormattedDate(theme.created_at) : ""}
+          subheader={subheader}
           avatar={avatar}
         />
-        {content}
         {actions}
       </CardActionArea>
     </Card>
