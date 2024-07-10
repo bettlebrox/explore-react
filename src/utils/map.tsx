@@ -16,4 +16,6 @@ export const iconRelTypeMap:{ [key: string]: IconProp} = {
 export const iconChatTypeMap:{ [key: string]: IconProp} = {
   user: faUser,
   assistant: faRobot,
+  system: faRobot,
+  undefined: faRobot
 }

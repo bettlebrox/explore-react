@@ -2,7 +2,7 @@ import { useChatCompletion } from "openai-streaming-hooks";
 import { useEffect, useState } from "react";
 import { Article } from "../interfaces/Article";
 import {
-  Avatar,
+  Box,
   Card,
   CardHeader,
   Container,
@@ -10,8 +10,6 @@ import {
   TextField,
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { red } from "@mui/material/colors";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { iconChatTypeMap } from "../utils/map";
 import { ChatMessageParams } from "openai-streaming-hooks/dist/types";
 const formatDate = (date: Date) =>
@@ -37,7 +35,7 @@ export function Chatbot({ context }: { context: Article[] }) {
         role: "system",
         content:
           "You are an expert research assistant. answer questions based on the following articles. if the answer can't be found answer 'not found' --- " +
-          context.map((a) => a.text).join("---"),
+          context.slice(0,10).map((a) => a.text).join("---"),
       })}
       prompt.push({
         role: "user",
@@ -50,17 +48,19 @@ export function Chatbot({ context }: { context: Article[] }) {
   // When content is added to the chat window, make sure we scroll to the bottom so the most
   // recent content is visible to the user.
   useEffect(() => {
-    window.scrollTo(0, document.body.scrollHeight);
+    if(messages.length > 0){
+      window.scrollTo(0, document.body.scrollHeight);
+    }
   }, [messages]);
 
   return (
     <>
-      <Container>
+      <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
         {messages.length < 1 ? (
           <Card title="No Messages"></Card>
         ) : (
           messages.slice(1).map((msg, i) => (
-            <Card key={i} sx={{ maxWidth: 345 }}>
+            <Card key={i} sx={{ display:"flex", flexDirection: msg.role==="user"?"row":"row-reverse" }}>
               <CardHeader
                 subheader={msg.content}
                 avatar={
@@ -93,13 +93,18 @@ export function Chatbot({ context }: { context: Article[] }) {
             </div>*/
           ))
         )}
-      </Container>
-      <Container>
+      </Box>
+      <Container sx={{ marginTop: "10px" }}>
         <TextField
           placeholder="Write a prompt"
           value={promptText}
           onChange={(event) => {
             setPromptText(event.target.value);
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              onSend();
+            }
           }}
           disabled={
             messages.length > 0 && messages[messages.length - 1].meta.loading
