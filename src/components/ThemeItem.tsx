@@ -54,14 +54,6 @@ export function ThemeItem({
         <>
         <Typography variant="body2" align="left">
           {getFormattedDate(theme.created_at)}
-          <span>
-            <FontAwesomeIcon icon={faNewspaper} />
-            {theme.article_count}
-            <FontAwesomeIcon icon={faLink} />
-            {theme.recurrent_count}
-            <FontAwesomeIcon icon={faUnlink} />
-            {theme.sporadic_count}
-          </span>
         </Typography>
         <Typography variant="body2" align="left">
           {theme.summary}
@@ -71,7 +63,7 @@ export function ThemeItem({
     );
   }
   return (
-    <Card className="theme-item" variant="outlined">
+    <Card className="theme-item" variant="outlined" sx={{ minWidth: 520 }}>
       <CardActionArea component={Link} to={"/theme/" + theme.title}>
         <CardHeader
           title={isPlaceholderData?(<Skeleton animation="wave" variant="text" width={200} />):(<Typography>{theme.original_title}</Typography>)}

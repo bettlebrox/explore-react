@@ -1,21 +1,26 @@
-import { useState } from "react";
 import { DassieItem, Theme } from "../interfaces/Theme";
 import {
+  Box,
   Card,
   CardActions,
   CardContent,
   CardHeader,
   Grid,
   IconButton,
+  Skeleton,
   Typography,
 } from "@mui/material";
 import { getFormattedDate } from "../utils/format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { iconThemeTypeMap } from "../utils/map";
 import { RelSummary } from "./RelSummary";
-import { ThemeGroup } from "./ThemeList";
 import { ArticleGroup } from "./ArticleList";
 import { Chatbot } from "./Chatbot";
+import { get } from "aws-amplify/api";
+import { useQuery } from "react-query";
+import { useLocation } from "react-router-dom";
+import { ThemeLinkList } from "./ThemeLinkList";
+import { useMemo } from "react";
 
 interface ThemeDetail extends Theme {
   related: Article[];
@@ -29,130 +34,144 @@ interface Article extends DassieItem {
   image: string | null;
   themes: string[];
 }
-export function ThemeDetail() {
-  const [theme] = useState<ThemeDetail>({
-    id: "a86b7d0b-e1af-4d0d-8231-e5ea4cb433c3",
-    title: "download+and+sync+options",
-    original_title: "Download And Sync Options",
-    summary:
-      "Download and sync options are available for various platforms and devices.",
-    created_at: "2024-06-17T14:21:22.330206",
-    updated_at: "2024-06-17T14:21:22.330241",
-    source: "top",
+function getPlaceHolderTheme(): ThemeDetail {
+  return {
+    id: "1",
+    source: "skeleton",
+    recurrent_count: 0,
+    sporadic_count: 0,
+    article_count: 0,
+    title: "",
+    original_title: "",
+    summary: null,
+    created_at: "",
+    updated_at: "",
     related: [
       {
-        id: "20976471-7135-4797-b35c-6e9819fbf068",
-        title: "Download+-+Obsidian",
-        original_title: "Download - Obsidian",
-        summary:
-          "Download the latest version of Obsidian for various platforms including macOS, iOS, Android, Windows, Linux, and more. Explore pricing options and join the Obsidian community for support and updates.",
-        created_at: "2024-06-06T15:43:48.720906",
-        url: "https://obsidian.md/download",
-        logged_at: "2024-04-17T09:04:20.125141",
-        updated_at: "2024-06-06T15:43:48.720942",
-        text: "Download\nPricing\nSync\nPublish\nCommunity Account\nDownload for macOS\nLast updated March\u00a031,\u00a02024\nMore platforms\niOS\nApp Store\nAndroid\nGoogle Play\nAPK\nWindows\nStandard\n(64-bit)\nARM\n(64-bit)\nLegacy\n(32-bit)\nMac\nUniversal (Apple Silicon and\u00a0Intel)\nLinux\nAppImage\nSnap\nDeb\nAppImage\n(AArch64/ARM64)\nFlatpak (Community\u00a0maintained)\nGet started\nDownload\nPricing\nAccount\nObsidian\nOverview\nSync\nPublish\nCanvas\nMobile\nPlugins\nLearn\nHelp\nDevelopers\nChangelog\nAbout\nRoadmap\nBlog\nLegal\nLicense overview\nTerms of service\nPrivacy / Security\nCommunity\nJoin the community\nBrand guidelines\nMerch store\nDiscord\nForum / \u4e2d\u6587\u8bba\u575b\nFollow us\nTwitter\nMastodon\nYouTube\nGitHub\n\u00a9 2024 Obsidian",
-        source: "0ce88eaf81c54e498ff5c1946ec183c6",
+        url: "",
+        logged_at: "",
+        text: "",
         image: null,
-        themes: [
-          "Community Features",
-          "Software Download",
-          "Pricing Options",
-          "Download And Sync Options",
-        ],
+        themes: [],
+        id: "",
+        title: "",
+        original_title: "",
+        summary: null,
+        created_at: "",
+        updated_at: "",
+        source: "skeleton",
       },
     ],
-    recurrent: [
-      {
-        id: "e6409a0f-f8f3-4e5e-8b62-a6e5bda39c71",
-        title: "syncing+data+across+devices",
-        original_title: "Syncing Data Across Devices",
-        summary: "Similar to download+and+sync+options",
-        created_at: "2024-06-17T14:21:22.330206",
-        updated_at: "2024-06-17T14:21:22.330241",
-        source: "recurrent",
-      },
-      {
-        id: "4afd0812-431b-489e-8052-2e3c096a1224",
-        title: "download+options+for+multiple+platforms",
-        original_title: "Download Options For Multiple Platforms",
-        summary: "Similar to download+and+sync+options",
-        created_at: "2024-06-17T14:21:22.330206",
-        updated_at: "2024-06-17T14:21:22.330241",
-        source: "recurrent",
-      },
-    ],
-    sporadic: [
-      {
-        id: "4f1fe060-baef-400c-b343-eae0a1ea0a22",
-        title: "availability+of+platforms+or+devices",
-        original_title: "Availability Of Platforms Or Devices",
-        summary: "Dissimilar to download+and+sync+options",
-        created_at: "2024-06-17T14:21:22.330206",
-        updated_at: "2024-06-17T14:21:22.330241",
-        source: "sporadic",
-      },
-    ],
-  });
-  return (
+    recurrent: [],
+    sporadic: [],
+  };
+}
+
+export function ThemeDetail() {
+  const placeholderTheme = useMemo(() => getPlaceHolderTheme(), []);
+  const { pathname } = useLocation();
+  const getTheme = async () => {
+    const { body } = await get({
+      apiName: "Dassie",
+      path: "/api/themes/" + pathname.split("/").pop(),
+    }).response;
+    return JSON.parse(await body.text()) as ThemeDetail;
+  };
+  const { data: theme, error: error, isPlaceholderData: isPlaceholderData } = useQuery<ThemeDetail>(
+    "themeData",
+    getTheme,
+    { placeholderData: placeholderTheme }
+  );
+  if (error) {
+    console.log(error);
+  }
+  let recurrentText = <></>;
+  if (!isPlaceholderData && theme && theme.recurrent.length > 0) {
+    recurrentText = (
+      <Typography align="left">
+        <ThemeLinkList themes={theme.recurrent} /> also frequently appear in
+        these articles.
+      </Typography>
+    );
+  }
+  let sporadicText = <></>;
+  if (!isPlaceholderData && theme && theme.sporadic.length > 0) {
+    sporadicText = (
+      <Typography align="left">
+        <ThemeLinkList themes={theme.sporadic} /> appears sporadically in some
+        of these articles.
+      </Typography>
+    );
+  }
+
+  return theme ? (
     <>
       <Grid container spacing={1}>
         <Grid item={true} xs={12}>
           <Card>
             <CardHeader
               title={
-                <Typography variant="h5">{theme.original_title}</Typography>
+                !isPlaceholderData ? (
+                  <Typography variant="h5">{theme.original_title}</Typography>
+                ) : (
+                  <Skeleton
+                    animation="wave"
+                    variant="text"
+                    width={200}
+                  ></Skeleton>
+                )
               }
               align="left"
               subheader={
-                <>
-                  <div>{getFormattedDate(theme.updated_at)}</div>
-                  <RelSummary count={theme.related.length} type="related" />
-                  <RelSummary count={theme.recurrent.length} type="recurrent" />
-                  <RelSummary count={theme.sporadic.length} type="sporadic" />
-                </>
+                !isPlaceholderData ? (
+                  <>
+                    <div>{getFormattedDate(theme.updated_at)}</div>
+                    <RelSummary count={theme.related.length} type="related" />
+                    <RelSummary
+                      count={theme.recurrent.length}
+                      type="recurrent"
+                    />
+                    <RelSummary count={theme.sporadic.length} type="sporadic" />
+                  </>
+                ) : (
+                  <Skeleton
+                    animation="wave"
+                    variant="text"
+                    width={200}
+                  ></Skeleton>
+                )
               }
               avatar={
-                <IconButton>
-                  <FontAwesomeIcon icon={iconThemeTypeMap[theme.source]} />
-                </IconButton>
+                !isPlaceholderData ? (
+                  <IconButton>
+                    <FontAwesomeIcon icon={iconThemeTypeMap[theme.source]} />
+                  </IconButton>
+                ) : (
+                  <Skeleton
+                    animation="wave"
+                    variant="circular"
+                    width={32}
+                    height={32}
+                  ></Skeleton>
+                )
               }
             >
               <RelSummary count={theme.related.length} type="related" />
             </CardHeader>
             <CardContent>
-              <Typography variant="body2" align="left">
-                {theme.summary}
+              <Typography variant="body1" align="left">
+                {!isPlaceholderData ? (
+                  theme.summary
+                ) : (
+                  <Skeleton animation="wave" variant="text" />
+                )}
               </Typography>
+              <Box mt={1}>
+                {recurrentText}
+                {sporadicText}
+              </Box>
             </CardContent>
             <CardActions></CardActions>
-          </Card>
-        </Grid>
-        <Grid item={true} xs={6}>
-          <Card>
-            <CardContent>
-              <ThemeGroup
-                themes={theme.recurrent}
-                title="Agreements"
-                status={{
-                  error: undefined,
-                  isPlaceholderData: false,
-                }}
-              ></ThemeGroup>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item={true} xs={6}>
-          <Card>
-            <CardContent>
-              <ThemeGroup
-                themes={theme.sporadic}
-                title="Disagreements"
-                status={{
-                  error: undefined,
-                  isPlaceholderData: false,
-                }}
-              ></ThemeGroup>
-            </CardContent>
           </Card>
         </Grid>
         <Grid item={true} xs={12}>
@@ -161,6 +180,7 @@ export function ThemeDetail() {
               <ArticleGroup
                 articles={theme.related}
                 title={"Related Articles"}
+                isPlaceholderData={isPlaceholderData}
               ></ArticleGroup>
             </CardContent>
           </Card>
@@ -174,5 +194,7 @@ export function ThemeDetail() {
         </Grid>
       </Grid>
     </>
+  ) : (
+    <></>
   );
 }

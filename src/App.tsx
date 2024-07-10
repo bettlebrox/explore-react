@@ -18,7 +18,7 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
         <>
-          <AppBar position="static">
+          <AppBar position="static" sx={{ minWidth: "100%" }}>
             <Toolbar>
               <Button color="inherit" href="/">
                 Home
@@ -36,7 +36,7 @@ function App() {
             </Toolbar>
           </AppBar>
           <QueryClientProvider client={queryClient}>
-            <Paper sx={{ p: 2 }}>
+            <Paper sx={{ p: 2, maxWidth: 1200, margin: "auto" }}>
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/theme/:themeTitle" element={<ThemeDetail />} />
