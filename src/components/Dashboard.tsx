@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Theme } from "../interfaces/Theme";
 import { Grid } from "@mui/material";
 import { ThemeGroup } from "./ThemeList";
-import axios from "axios";
 import { useQuery } from "react-query";
 import { get } from "aws-amplify/api";
 
@@ -23,52 +22,27 @@ const getRecentThemes = async () => {
     }).response;
     return body.json()
 };
+
+function getPlaceHolderThemes(){
+  return new Array<Theme>(3).fill({
+    id: "1", source: "skeleton",
+    recurrent_count: 0,
+    sporadic_count: 0,
+    article_count: 0,
+    title: "",
+    original_title: "",
+    summary: null,
+    created_at: "",
+    updated_at: ""
+  }).map((theme, index) => ({...theme, id: index.toString()}));
+}
 export function Dashboard() {
+  const placeholderThemes = useMemo(() => getPlaceHolderThemes(), []);
   const {
     data: recentThemes,
-    error,
-    isLoading,
-  } = useQuery("themesData", getRecentThemes);
-  /*const error = undefined;
-   const isLoading = false;
-    const [recentThemes] = useState<Theme[]>([
-      {
-        id: "a86b7d0b-e1af-4d0d-8231-e5ea4cb433c3",
-        title: "download+and+sync+options",
-        original_title: "Download And Sync Options",
-        summary: "Download and sync options are available for various platforms and devices.",
-        created_at: "2024-06-17T14:21:22.330206",
-        updated_at: "2024-06-17T14:21:22.330241",
-        article_count: 10,
-        source: "top",
-        recurrent_count: 7,
-        sporadic_count: 2
-      },
-      {
-        id: "34c7bf41-5f99-406a-8b6f-7b3a11a932ef",
-        title: "software+engineering+director+roles",
-        original_title: "Software Engineering Director Roles",
-        summary: "Software engineering director roles in various companies require expertise in software development tools and team management.",
-        created_at: "2024-06-17T14:21:22.330206",
-        updated_at: "2024-06-17T14:21:22.330241",
-        article_count: 10,
-        source: "top",
-        recurrent_count: 3,
-        sporadic_count: 1
-      },
-      {
-        id: "fddfc95b-a847-4a70-9f4c-903f0fe5ca03",
-        title: "consumer+information",
-        original_title: "Consumer Information",
-        summary: null,
-        created_at: "2024-06-06T15:43:48.725583",
-        updated_at: "2024-06-17T14:21:22.330241",
-        article_count: 8,
-        source: "top",
-        recurrent_count: 4,
-        sporadic_count: 0
-      },
-    ]);*/
+    error: error,
+    isPlaceholderData:isPlaceholderData,
+  } = useQuery("themesData", getRecentThemes,{placeholderData:placeholderThemes});
   const [topThemes] = useState<Theme[]>([
     {
       id: "fddfc95b-a847-4a70-9f4c-903f0fe5ca03",
@@ -114,7 +88,7 @@ export function Dashboard() {
           <ThemeGroup
             title="Top Themes"
             themes={topThemes}
-            status={{ error: error, isLoading: isLoading }}
+            status={{ error: error, isPlaceholderData: isPlaceholderData }}
             expanded
           />
         </Grid>
@@ -122,7 +96,7 @@ export function Dashboard() {
           <ThemeGroup
             title="Recent Themes"
             themes={recentThemes}
-            status={{ error: error, isLoading: isLoading }}
+            status={{ error: error, isPlaceholderData: isPlaceholderData }}
             expanded
           />
         </Grid>

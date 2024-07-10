@@ -135,7 +135,7 @@ export function ThemeDetail() {
                 title="Agreements"
                 status={{
                   error: undefined,
-                  isLoading: false,
+                  isPlaceholderData: false,
                 }}
               ></ThemeGroup>
             </CardContent>
@@ -149,7 +149,7 @@ export function ThemeDetail() {
                 title="Disagreements"
                 status={{
                   error: undefined,
-                  isLoading: false,
+                  isPlaceholderData: false,
                 }}
               ></ThemeGroup>
             </CardContent>
