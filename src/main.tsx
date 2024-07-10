@@ -6,8 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Amplify } from "aws-amplify";
 import outputs from "../amplify_outputs.json";
 
-Amplify.configure(outputs);
-
+Amplify.configure(outputs)
 const existingConfig = Amplify.getConfig();
 
 // Add existing resource to the existing configuration.

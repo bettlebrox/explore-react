@@ -1,55 +1,60 @@
 import { useState } from "react";
-import { DassieItem } from "../interfaces/Theme";
+import { Theme } from "../interfaces/Theme";
 import { Grid } from "@mui/material";
 import { ThemeGroup } from "./ThemeList";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { get } from "aws-amplify/api";
+
 const getRecentThemes = async () => {
   /*const response = await axios.get(
     "http://127.0.0.1:3000/api/themes?sortField=updated_at&max=5",
   );
   return response.data;*/
-  const response = await get({
-    apiName: "Dassie",
-    path: "/api/themes",
-    options: {
-      queryParams: {
-        sortField: "updated_at",
-        max: "5",
+    const {body} = await get({
+      apiName: "Dassie",
+      path: "/api/themes",
+      options: {
+        queryParams: {
+          sortField: "updated_at",
+          max: "5",
+        },
       },
-    },
-  });
-  return response.json();
+    }).response;
+    return body.json()
 };
 export function Dashboard() {
-  /*const {
+  const {
     data: recentThemes,
     error,
     isLoading,
-  } = useQuery("themesData", getRecentThemes);*/
-  const error = undefined;
+  } = useQuery("themesData", getRecentThemes);
+  /*const error = undefined;
    const isLoading = false;
-    const [recentThemes] = useState<DassieItem[]>([
+    const [recentThemes] = useState<Theme[]>([
       {
         id: "a86b7d0b-e1af-4d0d-8231-e5ea4cb433c3",
         title: "download+and+sync+options",
         original_title: "Download And Sync Options",
-        summary:
-          "Download and sync options are available for various platforms and devices.",
+        summary: "Download and sync options are available for various platforms and devices.",
         created_at: "2024-06-17T14:21:22.330206",
         updated_at: "2024-06-17T14:21:22.330241",
+        article_count: 10,
         source: "top",
+        recurrent_count: 7,
+        sporadic_count: 2
       },
       {
         id: "34c7bf41-5f99-406a-8b6f-7b3a11a932ef",
         title: "software+engineering+director+roles",
         original_title: "Software Engineering Director Roles",
-        summary:
-          "Software engineering director roles in various companies require expertise in software development tools and team management.",
+        summary: "Software engineering director roles in various companies require expertise in software development tools and team management.",
         created_at: "2024-06-17T14:21:22.330206",
         updated_at: "2024-06-17T14:21:22.330241",
+        article_count: 10,
         source: "top",
+        recurrent_count: 3,
+        sporadic_count: 1
       },
       {
         id: "fddfc95b-a847-4a70-9f4c-903f0fe5ca03",
@@ -58,10 +63,13 @@ export function Dashboard() {
         summary: null,
         created_at: "2024-06-06T15:43:48.725583",
         updated_at: "2024-06-17T14:21:22.330241",
+        article_count: 8,
         source: "top",
+        recurrent_count: 4,
+        sporadic_count: 0
       },
-    ]);
-  const [topThemes] = useState<DassieItem[]>([
+    ]);*/
+  const [topThemes] = useState<Theme[]>([
     {
       id: "fddfc95b-a847-4a70-9f4c-903f0fe5ca03",
       title: "consumer+information",
@@ -70,26 +78,33 @@ export function Dashboard() {
       created_at: "2024-06-06T15:43:48.725583",
       updated_at: "2024-06-17T14:21:22.330241",
       source: "top",
+      recurrent_count: 0,
+      sporadic_count: 0,
+      article_count: 0
     },
     {
       id: "710b2049-ad7e-42fc-bb2d-3a818a6c1a59",
       title: "digital+sales+room",
       original_title: "Digital Sales Room",
-      summary:
-        "SalesAI offers a foundational platform for leveraging AI in sales, providing accurate insights, holistic views, and a clear path to revenue growth.",
+      summary: "SalesAI offers a foundational platform for leveraging AI in sales, providing accurate insights, holistic views, and a clear path to revenue growth.",
       created_at: "2024-06-17T14:21:22.330206",
       updated_at: "2024-06-17T14:21:22.330241",
       source: "article",
+      recurrent_count: 0,
+      sporadic_count: 0,
+      article_count: 0
     },
     {
       id: "fe4c4e35-b445-4e57-a9e2-6625d640b68e",
       title: "open+source+projects+and+licensing",
       original_title: "Open Source Projects And Licensing",
-      summary:
-        "Licensing and starting open source projects are common themes in the provided texts.",
+      summary: "Licensing and starting open source projects are common themes in the provided texts.",
       created_at: "2024-06-17T14:21:22.330206",
       updated_at: "2024-06-17T14:21:22.330241",
       source: "custom",
+      recurrent_count: 0,
+      sporadic_count: 0,
+      article_count: 0
     },
   ]);
   return (

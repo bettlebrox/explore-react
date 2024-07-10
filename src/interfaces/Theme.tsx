@@ -9,5 +9,7 @@ export interface DassieItem {
 }
 
 export interface Theme extends DassieItem{
-
+    recurrent_count: number;
+    sporadic_count: number;
+    article_count: number;
 }

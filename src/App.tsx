@@ -10,7 +10,7 @@ import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { ReactQueryDevtools } from "react-query/devtools";
 
-import { AppBar, Box, Button, Paper, Toolbar, Typography } from "@mui/material";
+import { AppBar, Button, Paper, Toolbar, Typography } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient();
 function App() {
@@ -18,22 +18,25 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
         <>
+          <AppBar position="static">
+            <Toolbar>
+              <Button color="inherit" href="/">
+                Home
+              </Button>
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{ flexGrow: 1 }}
+              >
+                Dassie - {user?.signInDetails?.loginId}'s Second Brain
+              </Typography>
+              <Button color="inherit" onClick={signOut}>
+                Logout
+              </Button>
+            </Toolbar>
+          </AppBar>
           <QueryClientProvider client={queryClient}>
             <Paper sx={{ p: 2 }}>
-                <AppBar position="static">
-                  <Toolbar>
-                    <Typography
-                      variant="h6"
-                      component="div"
-                      sx={{ flexGrow: 1 }}
-                    >
-                      Dassie - {user?.signInDetails?.loginId}'s Second Brain
-                    </Typography>
-                    <Button color="inherit" onClick={signOut}>
-                      Logout
-                    </Button>
-                  </Toolbar>
-                </AppBar>
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/theme/:themeTitle" element={<ThemeDetail />} />

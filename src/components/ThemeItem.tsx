@@ -1,4 +1,4 @@
-import { DassieItem } from "../interfaces/Theme";
+import { DassieItem, Theme } from "../interfaces/Theme";
 import {
   Card,
   CardActionArea,
@@ -10,12 +10,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getFormattedDate } from "../utils/format";
 import { iconThemeTypeMap } from "../utils/map";
 import { Link } from "react-router-dom";
+import { faLink, faNewspaper, faUnlink } from "@fortawesome/free-solid-svg-icons";
 
 export function ThemeItem({
   theme,
   expanded,
 }: {
-  theme: DassieItem;
+  theme: Theme;
   expanded?: boolean;
 }) {
   const actions = <></>;
@@ -31,6 +32,11 @@ export function ThemeItem({
       <>
         <Typography variant="body2" align="left">
           {getFormattedDate(theme.created_at)}
+          <span>
+            <FontAwesomeIcon icon={faNewspaper} />{theme.article_count}
+            <FontAwesomeIcon icon={faLink} />{theme.recurrent_count}
+            <FontAwesomeIcon icon={faUnlink} />{theme.sporadic_count}
+          </span>
         </Typography>
         <Typography variant="body2" align="left">
           {theme.summary}
