@@ -13,8 +13,7 @@ import { getFormattedDate } from "../utils/format";
 import { iconThemeTypeMap } from "../utils/map";
 import { Link } from "react-router-dom";
 import { del } from "aws-amplify/api";
-import { useMutation } from "react-query";
-import { queryClient } from "../main";
+import { useMutation, useQueryClient } from "react-query";
 
 async function delTheme(title:string){
   try {
@@ -37,6 +36,7 @@ export function ThemeItem({
   expanded?: boolean;
   isPlaceholderData?: boolean;
 }) {
+  const queryClient = useQueryClient();
   const deleteTheme = useMutation({
     mutationFn: async (title: string) => {
       await delTheme(title);

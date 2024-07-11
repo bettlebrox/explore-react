@@ -10,7 +10,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 
 Amplify.configure(outputs)
 const existingConfig = Amplify.getConfig();
-export const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
 // Add existing resource to the existing configuration.
 Amplify.configure({
