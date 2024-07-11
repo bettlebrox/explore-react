@@ -2,6 +2,7 @@ import { Theme } from "../interfaces/Theme";
 import {
   Card,
   CardActionArea,
+  CardActions,
   CardHeader,
   IconButton,
   Skeleton,
@@ -11,12 +12,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getFormattedDate } from "../utils/format";
 import { iconThemeTypeMap } from "../utils/map";
 import { Link } from "react-router-dom";
-import {
-  faLink,
-  faNewspaper,
-  faUnlink,
-} from "@fortawesome/free-solid-svg-icons";
+import { del } from "aws-amplify/api";
+import { useMutation } from "react-query";
+import { queryClient } from "../main";
 
+async function delTheme(title:string){
+  try {
+    const restOperation = del({
+      apiName: "Dassie",
+      path: "/api/themes/" +title,
+    });
+    await restOperation.response;
+    console.log("DELETE call succeeded");
+  }catch (error) {
+    console.log("DELETE call failed: ");
+  }
+}
 export function ThemeItem({
   theme,
   expanded,
@@ -26,7 +37,16 @@ export function ThemeItem({
   expanded?: boolean;
   isPlaceholderData?: boolean;
 }) {
-  const actions = <></>;
+  const deleteTheme = useMutation({
+    mutationFn: async (title: string) => {
+      await delTheme(title);
+      return title;
+    },
+    onMutate: () => {
+      queryClient.cancelQueries(["customThemesData"]);
+    }
+  });
+  const actions = <CardActions><IconButton onClick={() => deleteTheme.mutate(theme.title)}>Delete</IconButton></CardActions>;
   let subheader = <></>;
   let avatar: JSX.Element | null = null;
   if (expanded) {
@@ -71,8 +91,8 @@ export function ThemeItem({
           subheader={subheader}
           avatar={avatar}
         />
-        {actions}
       </CardActionArea>
+        {actions}
     </Card>
   );
 }

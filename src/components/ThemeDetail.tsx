@@ -70,15 +70,16 @@ function getPlaceHolderTheme(): ThemeDetail {
 export function ThemeDetail() {
   const placeholderTheme = useMemo(() => getPlaceHolderTheme(), []);
   const { pathname } = useLocation();
+  const themeTitle = pathname.split("/").pop();
   const getTheme = async () => {
     const { body } = await get({
       apiName: "Dassie",
-      path: "/api/themes/" + pathname.split("/").pop(),
+      path: "/api/themes/" + themeTitle,
     }).response;
     return JSON.parse(await body.text()) as ThemeDetail;
   };
   const { data: theme, error: error, isPlaceholderData: isPlaceholderData } = useQuery<ThemeDetail>(
-    "themeData",
+    themeTitle? themeTitle: "themeDetail",
     getTheme,
     { placeholderData: placeholderTheme }
   );

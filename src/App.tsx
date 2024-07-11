@@ -8,11 +8,8 @@ import { ThemeDetail } from "./components/ThemeDetail";
 import { Dashboard } from "./components/Dashboard";
 import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import { ReactQueryDevtools } from "react-query/devtools";
-
 import { AppBar, Button, Paper, Toolbar, Typography } from "@mui/material";
-import { QueryClient, QueryClientProvider } from "react-query";
-const queryClient = new QueryClient();
+
 function App() {
   return (
     <Authenticator>
@@ -35,15 +32,12 @@ function App() {
               </Button>
             </Toolbar>
           </AppBar>
-          <QueryClientProvider client={queryClient}>
             <Paper sx={{ p: 2, maxWidth: 1200, margin: "auto" }}>
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/theme/:themeTitle" element={<ThemeDetail />} />
               </Routes>
             </Paper>
-            <ReactQueryDevtools initialIsOpen={false} />
-          </QueryClientProvider>
         </>
       )}
     </Authenticator>

@@ -4,6 +4,9 @@ import { Grid } from "@mui/material";
 import { ThemeGroup } from "./ThemeList";
 import { useQuery } from "react-query";
 import { get } from "aws-amplify/api";
+import { ThemeForm } from "./ThemeForm";
+
+
 
 const getRecentThemes = async () => {
   const { body } = await get({
@@ -26,6 +29,21 @@ const getTopThemes = async () => {
     options: {
       queryParams: {
         sortField: "count_association",
+        max: "3",
+      },
+    },
+  }).response;
+  return JSON.parse(await body.text()) as Theme[];
+};
+
+const getCustomThemes = async () => {
+  const { body } = await get({
+    apiName: "Dassie",
+    path: "/api/themes",
+    options: {
+      queryParams: {
+        sortField: "count_association",
+        source: "custom",
         max: "3",
       },
     },
@@ -65,6 +83,13 @@ export function Dashboard() {
   } = useQuery<Theme[]>("topThemesData", getTopThemes, {
     placeholderData: placeholderThemes,
   });
+  const {
+    data: customThemes,
+    error: customThemesError,
+    isPlaceholderData: customThemesIsPlaceholderData,
+  } = useQuery<Theme[]>("customThemesData", getCustomThemes, {
+    placeholderData: placeholderThemes,
+  });
   return (
     <>
       <Grid container spacing={1}>
@@ -83,6 +108,17 @@ export function Dashboard() {
             status={{ error: recentThemesError, isPlaceholderData: recentThemesIsPlaceholderData }}
             expanded
           />
+        </Grid>
+        <Grid item={true} xs={6}>
+          <ThemeGroup
+            title="Custom Themes"
+            themes={customThemes}
+            status={{ error: customThemesError, isPlaceholderData: customThemesIsPlaceholderData }}
+            expanded
+          />
+        </Grid>
+        <Grid item={true} xs={6}>
+          <ThemeForm/>
         </Grid>
       </Grid>
     </>
