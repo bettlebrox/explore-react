@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { iconChatTypeMap } from "../utils/map";
 import { ChatMessageParams } from "openai-streaming-hooks/dist/types";
 import { faRobot, faUpLong } from "@fortawesome/free-solid-svg-icons";
+import { secret } from "@aws-amplify/backend";
 export function Chatbot({ context }: { context: Article[] }) {
   const [promptText, setPromptText] = useState("");
   const { messages, submitPrompt } = useChatCompletion({
     model: "gpt-3.5-turbo", // Required
-    apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+    apiKey: secret("OPENAI_API_KEY").toString(),
     temperature: 0.9,
   });
   const onSend = () => {
