@@ -5,6 +5,7 @@ import { Box, Card, CardHeader, Container, IconButton, TextField } from "@mui/ma
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { iconChatTypeMap } from "../utils/map";
 import { ChatMessageParams } from "openai-streaming-hooks/dist/types";
+import { faRobot, faUpLong } from "@fortawesome/free-solid-svg-icons";
 export function Chatbot({ context }: { context: Article[] }) {
   const [promptText, setPromptText] = useState("");
   const { messages, submitPrompt } = useChatCompletion({
@@ -43,19 +44,29 @@ export function Chatbot({ context }: { context: Article[] }) {
 
   return (
     <>
-      <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+      <Box sx={{ display: "flex", flexDirection: "column", height: "100%", margin: "auto" }}>
         {messages.length < 1 ? (
           <Card title="No Messages"></Card>
         ) : (
           messages.slice(1).map((msg, i) => (
-            <Card key={i} sx={{ display: "flex", flexDirection: msg.role === "user" ? "row" : "row-reverse" }}>
+            <Card
+              key={i}
+              sx={{
+                display: "flex",
+                flexDirection: msg.role === "user" ? "row" : "row-reverse",
+                textAlign: "left",
+              }}
+            >
               <CardHeader
-                subheader={msg.content}
-                avatar={
-                  <IconButton>
-                    <FontAwesomeIcon icon={iconChatTypeMap[msg.role]} />
-                  </IconButton>
+                subheader={
+                  <>
+                    <IconButton size="small">
+                      <FontAwesomeIcon icon={msg.role ? iconChatTypeMap[msg.role] : faRobot} />
+                    </IconButton>
+                    <pre style={{ whiteSpace: "pre-wrap" }}>{msg.content}</pre>
+                  </>
                 }
+                sx={{ maxWidth: 650 }}
               ></CardHeader>
             </Card>
             /*<div className="message-wrapper" key={i}>
@@ -82,7 +93,7 @@ export function Chatbot({ context }: { context: Article[] }) {
           ))
         )}
       </Box>
-      <Container sx={{ marginTop: "10px" }}>
+      <Container sx={{ marginTop: "10px", display: "flex", flexDirection: "row" }}>
         <TextField
           placeholder="Write a prompt"
           value={promptText}
@@ -98,7 +109,9 @@ export function Chatbot({ context }: { context: Article[] }) {
           multiline={true}
           rows={4}
         />
-        <IconButton onClick={onSend}>Send</IconButton>
+        <IconButton onClick={onSend}>
+          <FontAwesomeIcon icon={faUpLong} />
+        </IconButton>
       </Container>
     </>
   );

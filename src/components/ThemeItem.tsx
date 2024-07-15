@@ -49,7 +49,7 @@ export function ThemeItem({
     ) : (
       <>
         <Typography variant="body2" align="left">
-          {getFormattedDate(theme.created_at)}
+          {getFormattedDate(theme.updated_at)}
         </Typography>
         <Typography variant="body2" align="left">
           {theme.summary}
