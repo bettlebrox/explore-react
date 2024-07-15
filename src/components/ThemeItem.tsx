@@ -4,44 +4,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getFormattedDate } from "../utils/format";
 import { iconThemeTypeMap } from "../utils/map";
 import { Link } from "react-router-dom";
-import { del } from "aws-amplify/api";
-import { useMutation, useQueryClient } from "react-query";
-import { faClose, faDeleteLeft, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { UseMutationResult } from "react-query";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-async function delTheme(title: string) {
-  try {
-    const restOperation = del({
-      apiName: "Dassie",
-      path: "/api/themes/" + title,
-    });
-    await restOperation.response;
-    console.log("DELETE call succeeded");
-  } catch (error) {
-    console.log("DELETE call failed: ");
-  }
-}
 export function ThemeItem({
   theme,
   expanded,
   isPlaceholderData: isPlaceholderData,
+  onDeleteTheme,
 }: {
   theme: Theme;
   expanded?: boolean;
   isPlaceholderData?: boolean;
+  onDeleteTheme: UseMutationResult<string, unknown, string, void>;
 }) {
-  const queryClient = useQueryClient();
-  const deleteTheme = useMutation({
-    mutationFn: async (title: string) => {
-      await delTheme(title);
-      return title;
-    },
-    onMutate: () => {
-      queryClient.cancelQueries(["customThemesData"]);
-    },
-  });
   const actions = (
     <CardActions>
-      <IconButton onClick={() => deleteTheme.mutate(theme.title)} size="small">
+      <IconButton onClick={() => onDeleteTheme.mutate(theme.title)} size="small">
         <FontAwesomeIcon icon={faTrash} />
       </IconButton>
     </CardActions>

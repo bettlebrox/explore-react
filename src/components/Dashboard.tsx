@@ -26,11 +26,11 @@ export function Dashboard() {
           <ThemeGroup title="Recent Themes" expanded params={recentThemesQueryParams} />
         </Grid>
         <Grid item={true} xs={6}>
-          <ThemeGroup title="Custom Themes" expanded params={customThemesQueryParams} />
+          <ThemeGroup title="Custom Themes" expanded params={customThemesQueryParams}>
+            <ThemeForm />
+          </ThemeGroup>
         </Grid>
-        <Grid item={true} xs={6}>
-          <ThemeForm />
-        </Grid>
+        <Grid item={true} xs={6}></Grid>
       </Grid>
     </>
   );

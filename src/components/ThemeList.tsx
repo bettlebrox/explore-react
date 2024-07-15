@@ -2,8 +2,8 @@ import { Typography } from "@mui/material";
 import { Theme } from "../interfaces/Theme";
 import { ThemeItem } from "./ThemeItem";
 import { useMemo } from "react";
-import { get } from "aws-amplify/api";
-import { useQuery } from "react-query";
+import { del, get } from "aws-amplify/api";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 
 const getThemes = async ({ queryParams }: { queryParams: Record<string, string> }) => {
   queryParams["sortField"] = queryParams["sortField"] || "count_association";
@@ -17,6 +17,19 @@ const getThemes = async ({ queryParams }: { queryParams: Record<string, string> 
   }).response;
   return JSON.parse(await body.text()) as Theme[];
 };
+
+async function delTheme(title: string) {
+  try {
+    const restOperation = del({
+      apiName: "Dassie",
+      path: "/api/themes/" + title,
+    });
+    await restOperation.response;
+    console.log("DELETE call succeeded");
+  } catch (error) {
+    console.log("DELETE call failed: ");
+  }
+}
 
 function getPlaceHolderThemes(): Theme[] {
   return new Array<Theme>(3)
@@ -36,6 +49,16 @@ function getPlaceHolderThemes(): Theme[] {
 }
 export function ThemeList({ params, expanded }: { params: Record<string, string>; expanded?: boolean }) {
   const placeholderThemes = useMemo(() => getPlaceHolderThemes(), []);
+  const queryClient = useQueryClient();
+  const deleteTheme = useMutation({
+    mutationFn: async (title: string) => {
+      await delTheme(title);
+      return title;
+    },
+    onMutate: () => {
+      queryClient.cancelQueries(["themes", params]);
+    },
+  });
   const {
     data: themes,
     error: error,
@@ -47,7 +70,15 @@ export function ThemeList({ params, expanded }: { params: Record<string, string>
   return (
     <>
       {themes.map((theme) => {
-        return <ThemeItem key={theme.id} theme={theme} expanded={expanded} isPlaceholderData={isPlaceholderData} />;
+        return (
+          <ThemeItem
+            key={theme.id}
+            theme={theme}
+            expanded={expanded}
+            isPlaceholderData={isPlaceholderData}
+            onDeleteTheme={deleteTheme}
+          />
+        );
       })}
     </>
   );
@@ -56,16 +87,19 @@ export function ThemeGroup({
   title,
   expanded,
   params,
+  children,
 }: {
   title: string;
   expanded?: boolean;
   params: Record<string, string>;
+  children?: React.ReactNode;
 }) {
   return (
     <>
       <Typography variant="h6" align="left">
         {title}
       </Typography>
+      {children}
       <ThemeList expanded={expanded} params={params} />
     </>
   );

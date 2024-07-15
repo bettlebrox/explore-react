@@ -1,15 +1,5 @@
 import { DassieItem, Theme } from "../interfaces/Theme";
-import {
-  Box,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  Grid,
-  IconButton,
-  Skeleton,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardActions, CardContent, CardHeader, Grid, IconButton, Skeleton, Typography } from "@mui/material";
 import { getFormattedDate } from "../utils/format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { iconThemeTypeMap } from "../utils/map";
@@ -78,29 +68,27 @@ export function ThemeDetail() {
     }).response;
     return JSON.parse(await body.text()) as ThemeDetail;
   };
-  const { data: theme, error: error, isPlaceholderData: isPlaceholderData } = useQuery<ThemeDetail>(
-    themeTitle? themeTitle: "themeDetail",
-    getTheme,
-    { placeholderData: placeholderTheme }
-  );
+  const {
+    data: theme,
+    error: error,
+    isPlaceholderData: isPlaceholderData,
+  } = useQuery<ThemeDetail>(themeTitle ? themeTitle : "themeDetail", getTheme, { placeholderData: placeholderTheme });
   if (error) {
     console.log(error);
   }
   let recurrentText = <></>;
-  if (!isPlaceholderData && theme && theme.recurrent.length > 0) {
+  if (!isPlaceholderData && theme && theme.recurrent && theme.recurrent.length > 0) {
     recurrentText = (
       <Typography align="left">
-        <ThemeLinkList themes={theme.recurrent} /> also frequently appear in
-        these articles.
+        <ThemeLinkList themes={theme.recurrent} /> also frequently appear in these articles.
       </Typography>
     );
   }
   let sporadicText = <></>;
-  if (!isPlaceholderData && theme && theme.sporadic.length > 0) {
+  if (!isPlaceholderData && theme && theme.sporadic && theme.sporadic.length > 0) {
     sporadicText = (
       <Typography align="left">
-        <ThemeLinkList themes={theme.sporadic} /> appears sporadically in some
-        of these articles.
+        <ThemeLinkList themes={theme.sporadic} /> appears sporadically in some of these articles.
       </Typography>
     );
   }
@@ -115,11 +103,7 @@ export function ThemeDetail() {
                 !isPlaceholderData ? (
                   <Typography variant="h5">{theme.original_title}</Typography>
                 ) : (
-                  <Skeleton
-                    animation="wave"
-                    variant="text"
-                    width={200}
-                  ></Skeleton>
+                  <Skeleton animation="wave" variant="text" width={200}></Skeleton>
                 )
               }
               align="left"
@@ -127,19 +111,12 @@ export function ThemeDetail() {
                 !isPlaceholderData ? (
                   <>
                     <div>{getFormattedDate(theme.updated_at)}</div>
-                    <RelSummary count={theme.related.length} type="related" />
-                    <RelSummary
-                      count={theme.recurrent.length}
-                      type="recurrent"
-                    />
-                    <RelSummary count={theme.sporadic.length} type="sporadic" />
+                    <RelSummary relArray={theme.related} type="related" />
+                    <RelSummary relArray={theme.recurrent} type="recurrent" />
+                    <RelSummary relArray={theme.sporadic} type="sporadic" />
                   </>
                 ) : (
-                  <Skeleton
-                    animation="wave"
-                    variant="text"
-                    width={200}
-                  ></Skeleton>
+                  <Skeleton animation="wave" variant="text" width={200}></Skeleton>
                 )
               }
               avatar={
@@ -148,24 +125,15 @@ export function ThemeDetail() {
                     <FontAwesomeIcon icon={iconThemeTypeMap[theme.source]} />
                   </IconButton>
                 ) : (
-                  <Skeleton
-                    animation="wave"
-                    variant="circular"
-                    width={32}
-                    height={32}
-                  ></Skeleton>
+                  <Skeleton animation="wave" variant="circular" width={32} height={32}></Skeleton>
                 )
               }
             >
-              <RelSummary count={theme.related.length} type="related" />
+              <RelSummary relArray={theme.related} type="related" />
             </CardHeader>
             <CardContent>
               <Typography variant="body1" align="left">
-                {!isPlaceholderData ? (
-                  theme.summary
-                ) : (
-                  <Skeleton animation="wave" variant="text" />
-                )}
+                {!isPlaceholderData ? theme.summary : <Skeleton animation="wave" variant="text" />}
               </Typography>
               <Box mt={1}>
                 {recurrentText}

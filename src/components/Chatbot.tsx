@@ -1,27 +1,10 @@
 import { useChatCompletion } from "openai-streaming-hooks";
 import { useEffect, useState } from "react";
 import { Article } from "../interfaces/Article";
-import {
-  Box,
-  Card,
-  CardHeader,
-  Container,
-  IconButton,
-  TextField,
-} from "@mui/material";
+import { Box, Card, CardHeader, Container, IconButton, TextField } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { iconChatTypeMap } from "../utils/map";
 import { ChatMessageParams } from "openai-streaming-hooks/dist/types";
-const formatDate = (date: Date) =>
-  date.toLocaleString("en-IE", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-    timeZoneName: "short",
-  });
 export function Chatbot({ context }: { context: Article[] }) {
   const [promptText, setPromptText] = useState("");
   const { messages, submitPrompt } = useChatCompletion({
@@ -31,16 +14,21 @@ export function Chatbot({ context }: { context: Article[] }) {
   });
   const onSend = () => {
     const prompt: ChatMessageParams[] = [];
-    if(messages.length === 0){ prompt.push({
+    if (messages.length === 0) {
+      prompt.push({
         role: "system",
         content:
           "You are an expert research assistant. answer questions based on the following articles. if the answer can't be found answer 'not found' --- " +
-          context.slice(0,10).map((a) => a.text).join("---"),
-      })}
-      prompt.push({
-        role: "user",
-        content: promptText,
+          context
+            .slice(0, 10)
+            .map((a) => a.text)
+            .join("---"),
       });
+    }
+    prompt.push({
+      role: "user",
+      content: promptText,
+    });
     submitPrompt(prompt);
     setPromptText("");
   };
@@ -48,7 +36,7 @@ export function Chatbot({ context }: { context: Article[] }) {
   // When content is added to the chat window, make sure we scroll to the bottom so the most
   // recent content is visible to the user.
   useEffect(() => {
-    if(messages.length > 0){
+    if (messages.length > 0) {
       window.scrollTo(0, document.body.scrollHeight);
     }
   }, [messages]);
@@ -60,12 +48,12 @@ export function Chatbot({ context }: { context: Article[] }) {
           <Card title="No Messages"></Card>
         ) : (
           messages.slice(1).map((msg, i) => (
-            <Card key={i} sx={{ display:"flex", flexDirection: msg.role==="user"?"row":"row-reverse" }}>
+            <Card key={i} sx={{ display: "flex", flexDirection: msg.role === "user" ? "row" : "row-reverse" }}>
               <CardHeader
                 subheader={msg.content}
                 avatar={
                   <IconButton>
-                    <FontAwesomeIcon icon={iconChatTypeMap[msg.role]}/>
+                    <FontAwesomeIcon icon={iconChatTypeMap[msg.role]} />
                   </IconButton>
                 }
               ></CardHeader>
@@ -106,9 +94,7 @@ export function Chatbot({ context }: { context: Article[] }) {
               onSend();
             }
           }}
-          disabled={
-            messages.length > 0 && messages[messages.length - 1].meta.loading
-          }
+          disabled={messages.length > 0 && messages[messages.length - 1].meta.loading}
           multiline={true}
           rows={4}
         />
