@@ -1,4 +1,4 @@
-import { DassieItem, Theme } from "../interfaces/Theme";
+import { ThemeDetail } from "../interfaces/ThemeDetail";
 import { Box, Card, CardActions, CardContent, CardHeader, Grid, IconButton, Skeleton, Typography } from "@mui/material";
 import { getFormattedDate } from "../utils/format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,53 +11,9 @@ import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
 import { ThemeLinkList } from "./ThemeLinkList";
 import { useMemo } from "react";
+import { getPlaceHolderTheme } from "../utils/placeholder";
 
-interface ThemeDetail extends Theme {
-  related: Article[];
-  recurrent: Theme[];
-  sporadic: Theme[];
-}
-interface Article extends DassieItem {
-  url: string;
-  logged_at: string;
-  text: string;
-  image: string | null;
-  themes: string[];
-}
-function getPlaceHolderTheme(): ThemeDetail {
-  return {
-    id: "1",
-    source: "skeleton",
-    recurrent_count: 0,
-    sporadic_count: 0,
-    article_count: 0,
-    title: "",
-    original_title: "",
-    summary: null,
-    created_at: "",
-    updated_at: "",
-    related: [
-      {
-        url: "",
-        logged_at: "",
-        text: "",
-        image: null,
-        themes: [],
-        id: "",
-        title: "",
-        original_title: "",
-        summary: null,
-        created_at: "",
-        updated_at: "",
-        source: "skeleton",
-      },
-    ],
-    recurrent: [],
-    sporadic: [],
-  };
-}
-
-export function ThemeDetail() {
+export function ThemeDetails() {
   const placeholderTheme = useMemo(() => getPlaceHolderTheme(), []);
   const { pathname } = useLocation();
   const themeTitle = pathname.split("/").pop();
