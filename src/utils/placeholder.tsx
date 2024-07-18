@@ -14,6 +14,8 @@ export function getPlaceHolderArticles(): Article[] {
       url: "",
       image: null,
       text: "",
+      themes: [],
+      logged_at: "",
     })
     .map((article, index) => ({ ...article, id: index.toString() }));
 }
@@ -41,6 +43,8 @@ export function getPlaceHolderTheme(): ThemeDetail {
         created_at: "",
         updated_at: "",
         source: "skeleton",
+        themes: [],
+        logged_at: "",
       },
     ],
     recurrent: [],

@@ -2,7 +2,7 @@ import { get } from "aws-amplify/api";
 import { ArticleGroup } from "./ArticleList";
 import { Article } from "../interfaces/Article";
 import { getPlaceHolderArticles } from "../utils/placeholder";
-import { setLogger, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import { Grid, MenuItem, Select, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
