@@ -10,7 +10,13 @@ import { ReactQueryDevtools } from "react-query/devtools";
 
 Amplify.configure(outputs);
 const existingConfig = Amplify.getConfig();
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retryDelay: (attemptIndex) => Math.min(3000 * 2 ** attemptIndex, 30000),
+    },
+  },
+});
 
 // Add existing resource to the existing configuration.
 Amplify.configure({

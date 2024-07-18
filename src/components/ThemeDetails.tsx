@@ -77,7 +77,7 @@ export function ThemeDetails() {
               }
               avatar={
                 !isPlaceholderData ? (
-                  <IconButton>
+                  <IconButton title={theme.source + " theme"}>
                     <FontAwesomeIcon icon={iconThemeTypeMap[theme.source]} />
                   </IconButton>
                 ) : (

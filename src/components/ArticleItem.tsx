@@ -53,13 +53,6 @@ export function ArticleItem({
                     {article.summary}
                   </Typography>
                 </Box>
-                {detailed ? (
-                  <Stack direction={"row"} sx={{ maxWidth: 750 }}>
-                    <ThemeChips themes={article.themes}></ThemeChips>
-                  </Stack>
-                ) : (
-                  <></>
-                )}
               </>
             ) : (
               <Skeleton variant="text" animation="wave" width={200}></Skeleton>
@@ -68,6 +61,13 @@ export function ArticleItem({
         />
         {actions}
       </CardActionArea>
+      {!isPlaceholderData && detailed ? (
+        <Stack direction={"row"} sx={{ maxWidth: 750 }}>
+          <ThemeChips themes={article.themes}></ThemeChips>
+        </Stack>
+      ) : (
+        <></>
+      )}
     </Card>
   );
 }
