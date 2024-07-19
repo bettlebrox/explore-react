@@ -1,11 +1,21 @@
 import { Theme } from '../interfaces/Theme';
-import { Card, CardActionArea, CardActions, CardHeader, IconButton, Skeleton, Typography } from '@mui/material';
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardHeader,
+  CircularProgress,
+  IconButton,
+  Skeleton,
+  Typography,
+} from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getFormattedDate } from '../utils/format';
 import { iconThemeTypeMap } from '../utils/map';
 import { Link } from 'react-router-dom';
 import { UseMutationResult } from 'react-query';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
 export function ThemeItem({
   theme,
@@ -18,10 +28,19 @@ export function ThemeItem({
   isPlaceholderData?: boolean;
   onDeleteTheme: UseMutationResult<string, unknown, string, void>;
 }) {
+  const [waiting, setWaiting] = React.useState(false);
+  const icon = waiting ? <CircularProgress size={16} /> : <FontAwesomeIcon icon={faTrash} />;
   const actions = (
     <CardActions>
-      <IconButton onClick={() => onDeleteTheme.mutate(theme.title)} size="small">
-        <FontAwesomeIcon icon={faTrash} />
+      <IconButton
+        onClick={() => {
+          setWaiting(true);
+          onDeleteTheme.mutate(theme.title);
+        }}
+        disabled={waiting}
+        size="small"
+      >
+        {icon}
       </IconButton>
     </CardActions>
   );

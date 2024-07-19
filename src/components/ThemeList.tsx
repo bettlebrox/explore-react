@@ -1,8 +1,9 @@
 import { Typography } from '@mui/material';
 import { Theme } from '../interfaces/Theme';
 import { ThemeItem } from './ThemeItem';
+import { ThemeForm } from './ThemeForm';
 import { useMemo } from 'react';
-import { del, get } from 'aws-amplify/api';
+import { del, get, post } from 'aws-amplify/api';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 const getThemes = async ({ queryParams }: { queryParams: Record<string, string> }) => {
@@ -31,6 +32,29 @@ async function delTheme(title: string) {
   }
 }
 
+async function postItem(title: string, handleSubmitComplete: () => void) {
+  try {
+    const restOperation = post({
+      apiName: 'Dassie',
+      path: '/api/themes',
+      options: {
+        body: {
+          title: title,
+        },
+      },
+    });
+
+    const { body } = await restOperation.response;
+    const response = await body.json();
+    handleSubmitComplete();
+    console.log('POST call succeeded');
+    console.log(response);
+  } catch (error) {
+    console.log('POST call failed: ');
+    handleSubmitComplete();
+  }
+}
+
 function getPlaceHolderThemes(): Theme[] {
   return new Array<Theme>(3)
     .fill({
@@ -50,9 +74,11 @@ function getPlaceHolderThemes(): Theme[] {
 export function ThemeList({ params, expanded }: { params: Record<string, string>; expanded?: boolean }) {
   const placeholderThemes = useMemo(() => getPlaceHolderThemes(), []);
   const queryClient = useQueryClient();
+
   const deleteTheme = useMutation({
     mutationFn: async (title: string) => {
       await delTheme(title);
+      queryClient.invalidateQueries(['themes', params]);
       return title;
     },
     onMutate: () => {
@@ -87,19 +113,30 @@ export function ThemeGroup({
   title,
   expanded,
   params,
-  children,
+  addForm,
 }: {
   title: string;
   expanded?: boolean;
   params: Record<string, string>;
-  children?: React.ReactNode;
+  addForm?: boolean;
 }) {
+  const queryClient = useQueryClient();
+  const addTheme = useMutation({
+    mutationFn: async (title: string) => {
+      await postItem(title, () => {});
+      queryClient.invalidateQueries(['themes', params]);
+      return title;
+    },
+    onMutate: () => {
+      queryClient.cancelQueries(['themes', params]);
+    },
+  });
   return (
     <>
       <Typography variant="h6" align="left">
         {title}
       </Typography>
-      {children}
+      {addForm && <ThemeForm onAddTheme={addTheme} />}
       <ThemeList expanded={expanded} params={params} />
     </>
   );
