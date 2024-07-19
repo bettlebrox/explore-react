@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, act } from '@testing-library/react';
 import { Dashboard } from './Dashboard';
 import { describe, it, expect, beforeAll, afterEach, afterAll } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { setupServer } from 'msw/node';
 const queryClient = new QueryClient();
 // declare which API requests to mock
 const server = setupServer(
-  http.get('http://127.0.0.1:3000/api/themes?sortField=updated_at&max=5', () => {
+  http.get('/api/themes', () => {
     return HttpResponse.json([
       {
         id: 'a86b7d0b-e1af-4d0d-8231-e5ea4cb433c3',
@@ -60,7 +60,9 @@ afterAll(() => server.close());
 
 describe('has headings', async () => {
   it('has the right headings', async () => {
-    render(<Dashboard />, { wrapper: AllTheProviders });
+    await act(() => {
+      render(<Dashboard />, { wrapper: AllTheProviders });
+    });
     const headings = await screen.getAllByRole('heading');
     const heading_texts = headings.map((heading) => {
       return heading.innerHTML;
