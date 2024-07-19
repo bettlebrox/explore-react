@@ -1,12 +1,12 @@
-import { LinearProgress, TextField } from "@mui/material";
-import { post } from "aws-amplify/api";
-import React from "react";
+import { LinearProgress, TextField } from '@mui/material';
+import { post } from 'aws-amplify/api';
+import React from 'react';
 
 async function postItem(title: string, handleSubmitComplete: () => void) {
   try {
     const restOperation = post({
-      apiName: "Dassie",
-      path: "/api/themes",
+      apiName: 'Dassie',
+      path: '/api/themes',
       options: {
         body: {
           title: title,
@@ -17,16 +17,16 @@ async function postItem(title: string, handleSubmitComplete: () => void) {
     const { body } = await restOperation.response;
     const response = await body.json();
     handleSubmitComplete();
-    console.log("POST call succeeded");
+    console.log('POST call succeeded');
     console.log(response);
   } catch (error) {
-    console.log("POST call failed: ");
+    console.log('POST call failed: ');
     handleSubmitComplete();
   }
 }
 
 export function ThemeForm() {
-  const [title, setTitle] = React.useState("");
+  const [title, setTitle] = React.useState('');
   const [waiting, setWaiting] = React.useState(false);
   const handleSubmitComplete = () => {
     setWaiting(false);

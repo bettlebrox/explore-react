@@ -1,20 +1,20 @@
-import { Grid } from "@mui/material";
-import { ThemeGroup } from "./ThemeList";
-import { ThemeForm } from "./ThemeForm";
+import { Grid } from '@mui/material';
+import { ThemeGroup } from './ThemeList';
+import { ThemeForm } from './ThemeForm';
 
 export function Dashboard() {
   const customThemesQueryParams = {
-    sortField: "count_association",
-    max: "3",
-    source: "custom",
+    sortField: 'count_association',
+    max: '3',
+    source: 'custom',
   };
   const topThemesQueryParams = {
-    sortField: "count_association",
-    max: "13",
+    sortField: 'count_association',
+    max: '13',
   };
   const recentThemesQueryParams = {
-    sortField: "updated_at",
-    max: "13",
+    sortField: 'updated_at',
+    max: '13',
   };
   return (
     <>

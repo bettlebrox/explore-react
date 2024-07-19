@@ -1,4 +1,4 @@
-import { DassieItem } from "./Theme";
+import { DassieItem } from './Theme';
 
 export interface Article extends DassieItem {
   themes: DassieItem[];

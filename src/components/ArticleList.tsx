@@ -1,6 +1,6 @@
-import { Typography } from "@mui/material";
-import { Article } from "../interfaces/Article";
-import { ArticleItem } from "./ArticleItem";
+import { Typography } from '@mui/material';
+import { Article } from '../interfaces/Article';
+import { ArticleItem } from './ArticleItem';
 
 export function ArticleList({
   articles,

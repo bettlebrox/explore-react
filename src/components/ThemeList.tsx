@@ -1,16 +1,16 @@
-import { Typography } from "@mui/material";
-import { Theme } from "../interfaces/Theme";
-import { ThemeItem } from "./ThemeItem";
-import { useMemo } from "react";
-import { del, get } from "aws-amplify/api";
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { Typography } from '@mui/material';
+import { Theme } from '../interfaces/Theme';
+import { ThemeItem } from './ThemeItem';
+import { useMemo } from 'react';
+import { del, get } from 'aws-amplify/api';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 const getThemes = async ({ queryParams }: { queryParams: Record<string, string> }) => {
-  queryParams["sortField"] = queryParams["sortField"] || "count_association";
-  queryParams["max"] = queryParams["max"] || "3";
+  queryParams['sortField'] = queryParams['sortField'] || 'count_association';
+  queryParams['max'] = queryParams['max'] || '3';
   const { body } = await get({
-    apiName: "Dassie",
-    path: "/api/themes",
+    apiName: 'Dassie',
+    path: '/api/themes',
     options: {
       queryParams: queryParams,
     },
@@ -21,29 +21,29 @@ const getThemes = async ({ queryParams }: { queryParams: Record<string, string> 
 async function delTheme(title: string) {
   try {
     const restOperation = del({
-      apiName: "Dassie",
-      path: "/api/themes/" + title,
+      apiName: 'Dassie',
+      path: '/api/themes/' + title,
     });
     await restOperation.response;
-    console.log("DELETE call succeeded");
+    console.log('DELETE call succeeded');
   } catch (error) {
-    console.log("DELETE call failed: ");
+    console.log('DELETE call failed: ');
   }
 }
 
 function getPlaceHolderThemes(): Theme[] {
   return new Array<Theme>(3)
     .fill({
-      id: "1",
-      source: "skeleton",
+      id: '1',
+      source: 'skeleton',
       recurrent_count: 0,
       sporadic_count: 0,
       article_count: 0,
-      title: "",
-      original_title: "",
+      title: '',
+      original_title: '',
       summary: null,
-      created_at: "",
-      updated_at: "",
+      created_at: '',
+      updated_at: '',
     })
     .map((theme, index) => ({ ...theme, id: index.toString() }));
 }
@@ -56,14 +56,14 @@ export function ThemeList({ params, expanded }: { params: Record<string, string>
       return title;
     },
     onMutate: () => {
-      queryClient.cancelQueries(["themes", params]);
+      queryClient.cancelQueries(['themes', params]);
     },
   });
   const {
     data: themes,
     error: error,
     isPlaceholderData: isPlaceholderData,
-  } = useQuery<Theme[]>(["themes", params], () => getThemes({ queryParams: params }), {
+  } = useQuery<Theme[]>(['themes', params], () => getThemes({ queryParams: params }), {
     placeholderData: placeholderThemes,
   });
   if (error || !themes) return <Typography align="left">Error</Typography>;

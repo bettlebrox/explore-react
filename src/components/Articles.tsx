@@ -1,19 +1,19 @@
-import { get } from "aws-amplify/api";
-import { ArticleGroup } from "./ArticleList";
-import { Article } from "../interfaces/Article";
-import { getPlaceHolderArticles } from "../utils/placeholder";
-import { useQuery } from "react-query";
-import { Grid, MenuItem, Select, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortAsc, faSortDesc } from "@fortawesome/free-solid-svg-icons";
+import { get } from 'aws-amplify/api';
+import { ArticleGroup } from './ArticleList';
+import { Article } from '../interfaces/Article';
+import { getPlaceHolderArticles } from '../utils/placeholder';
+import { useQuery } from 'react-query';
+import { Grid, MenuItem, Select, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSortAsc, faSortDesc } from '@fortawesome/free-solid-svg-icons';
 
 const getArticles = async ({ queryParams }: { queryParams: Record<string, string> }) => {
-  queryParams["sortField"] = queryParams["sortField"] || "logged_at";
-  queryParams["max"] = queryParams["max"] || "30";
+  queryParams['sortField'] = queryParams['sortField'] || 'logged_at';
+  queryParams['max'] = queryParams['max'] || '30';
   const { body } = await get({
-    apiName: "Dassie",
-    path: "/api/articles",
+    apiName: 'Dassie',
+    path: '/api/articles',
     options: {
       queryParams: queryParams,
     },
@@ -21,12 +21,12 @@ const getArticles = async ({ queryParams }: { queryParams: Record<string, string
   return JSON.parse(await body.text()) as Article[];
 };
 export function Articles() {
-  const [sortField, setSortField] = React.useState("logged_at");
-  const [sortOrder, setSortOrder] = React.useState("desc");
-  const [filter, setFilter] = React.useState("");
+  const [sortField, setSortField] = React.useState('logged_at');
+  const [sortOrder, setSortOrder] = React.useState('desc');
+  const [filter, setFilter] = React.useState('');
   const params = {
     sortField: sortField,
-    max: "30",
+    max: '30',
     sortOrder: sortOrder,
     filter: filter,
   };
@@ -35,7 +35,7 @@ export function Articles() {
     data: articles,
     isPlaceholderData: isPlaceholderData,
     isLoading: isLoading,
-  } = useQuery<Article[]>(["articles", params], () => getArticles({ queryParams: params }), {
+  } = useQuery<Article[]>(['articles', params], () => getArticles({ queryParams: params }), {
     placeholderData: placeholderArticles,
   });
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -71,10 +71,10 @@ export function Articles() {
             disabled={isLoading}
             onChange={(_, value) => setSortOrder(value)}
           >
-            <ToggleButton value={"desc"}>
+            <ToggleButton value={'desc'}>
               <FontAwesomeIcon icon={faSortAsc} />
             </ToggleButton>
-            <ToggleButton value={"asc"}>
+            <ToggleButton value={'asc'}>
               <FontAwesomeIcon icon={faSortDesc} />
             </ToggleButton>
           </ToggleButtonGroup>
@@ -82,7 +82,7 @@ export function Articles() {
       </Grid>
       <ArticleGroup
         articles={articles}
-        title={"All Articles"}
+        title={'All Articles'}
         isPlaceholderData={isPlaceholderData}
         detailed={true}
       ></ArticleGroup>

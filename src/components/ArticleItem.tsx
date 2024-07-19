@@ -1,7 +1,7 @@
-import { Article } from "../interfaces/Article";
-import { Box, Card, CardActionArea, CardHeader, Link, Skeleton, Stack, Typography } from "@mui/material";
-import { getBreadcrumbs, getFormattedDate } from "../utils/format";
-import ThemeChips from "./ThemeChips";
+import { Article } from '../interfaces/Article';
+import { Box, Card, CardActionArea, CardHeader, Link, Skeleton, Stack, Typography } from '@mui/material';
+import { getBreadcrumbs, getFormattedDate } from '../utils/format';
+import ThemeChips from './ThemeChips';
 
 export function ArticleItem({
   article,
@@ -14,7 +14,7 @@ export function ArticleItem({
 }) {
   const actions = <></>;
   const favicon = !isPlaceholderData ? (
-    <img src={"https://logo.clearbit.com/" + getBreadcrumbs(article.url)[0] + "?size=28"}></img>
+    <img src={'https://logo.clearbit.com/' + getBreadcrumbs(article.url)[0] + '?size=28'}></img>
   ) : (
     <Skeleton variant="circular" width={32} height={32}></Skeleton>
   );
@@ -35,7 +35,7 @@ export function ArticleItem({
             !isPlaceholderData ? (
               <>
                 <Box sx={{ maxWidth: 300 }}>
-                  <Typography noWrap>{getBreadcrumbs(article.url).join(" > ")}</Typography>
+                  <Typography noWrap>{getBreadcrumbs(article.url).join(' > ')}</Typography>
                   <Typography variant="caption" color="text.secondary">
                     {getFormattedDate(article.logged_at)}
                   </Typography>
@@ -43,11 +43,11 @@ export function ArticleItem({
                 <Box sx={{ maxWidth: 750 }}>
                   <Typography
                     sx={{
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      display: "-webkit-box",
-                      WebkitLineClamp: "2",
-                      WebkitBoxOrient: "vertical",
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      display: '-webkit-box',
+                      WebkitLineClamp: '2',
+                      WebkitBoxOrient: 'vertical',
                     }}
                   >
                     {article.summary}
@@ -62,7 +62,7 @@ export function ArticleItem({
         {actions}
       </CardActionArea>
       {!isPlaceholderData && detailed ? (
-        <Stack direction={"row"} sx={{ maxWidth: 750 }}>
+        <Stack direction={'row'} sx={{ maxWidth: 750 }}>
           <ThemeChips themes={article.themes}></ThemeChips>
         </Stack>
       ) : (

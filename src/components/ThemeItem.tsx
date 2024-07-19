@@ -1,11 +1,11 @@
-import { Theme } from "../interfaces/Theme";
-import { Card, CardActionArea, CardActions, CardHeader, IconButton, Skeleton, Typography } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getFormattedDate } from "../utils/format";
-import { iconThemeTypeMap } from "../utils/map";
-import { Link } from "react-router-dom";
-import { UseMutationResult } from "react-query";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Theme } from '../interfaces/Theme';
+import { Card, CardActionArea, CardActions, CardHeader, IconButton, Skeleton, Typography } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getFormattedDate } from '../utils/format';
+import { iconThemeTypeMap } from '../utils/map';
+import { Link } from 'react-router-dom';
+import { UseMutationResult } from 'react-query';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export function ThemeItem({
   theme,
@@ -58,8 +58,8 @@ export function ThemeItem({
     );
   }
   return (
-    <Card className="theme-item" variant="outlined" sx={{ minWidth: 520, display: "flex" }}>
-      <CardActionArea component={Link} to={"/theme/" + theme.title}>
+    <Card className="theme-item" variant="outlined" sx={{ minWidth: 520, display: 'flex' }}>
+      <CardActionArea component={Link} to={'/theme/' + theme.title}>
         <CardHeader
           title={
             isPlaceholderData ? (

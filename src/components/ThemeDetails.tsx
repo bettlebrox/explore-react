@@ -1,26 +1,26 @@
-import { ThemeDetail } from "../interfaces/ThemeDetail";
-import { Box, Card, CardActions, CardContent, CardHeader, Grid, IconButton, Skeleton, Typography } from "@mui/material";
-import { getFormattedDate } from "../utils/format";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { iconThemeTypeMap } from "../utils/map";
-import { RelSummary } from "./RelSummary";
-import { ArticleGroup } from "./ArticleList";
-import { Chatbot } from "./Chatbot";
-import { get } from "aws-amplify/api";
-import { useQuery } from "react-query";
-import { useLocation } from "react-router-dom";
-import { ThemeLinkList } from "./ThemeLinkList";
-import { useMemo } from "react";
-import { getPlaceHolderTheme } from "../utils/placeholder";
+import { ThemeDetail } from '../interfaces/ThemeDetail';
+import { Box, Card, CardActions, CardContent, CardHeader, Grid, IconButton, Skeleton, Typography } from '@mui/material';
+import { getFormattedDate } from '../utils/format';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { iconThemeTypeMap } from '../utils/map';
+import { RelSummary } from './RelSummary';
+import { ArticleGroup } from './ArticleList';
+import { Chatbot } from './Chatbot';
+import { get } from 'aws-amplify/api';
+import { useQuery } from 'react-query';
+import { useLocation } from 'react-router-dom';
+import { ThemeLinkList } from './ThemeLinkList';
+import { useMemo } from 'react';
+import { getPlaceHolderTheme } from '../utils/placeholder';
 
 export function ThemeDetails() {
   const placeholderTheme = useMemo(() => getPlaceHolderTheme(), []);
   const { pathname } = useLocation();
-  const themeTitle = pathname.split("/").pop();
+  const themeTitle = pathname.split('/').pop();
   const getTheme = async () => {
     const { body } = await get({
-      apiName: "Dassie",
-      path: "/api/themes/" + themeTitle,
+      apiName: 'Dassie',
+      path: '/api/themes/' + themeTitle,
     }).response;
     return JSON.parse(await body.text()) as ThemeDetail;
   };
@@ -28,7 +28,7 @@ export function ThemeDetails() {
     data: theme,
     error: error,
     isPlaceholderData: isPlaceholderData,
-  } = useQuery<ThemeDetail>(themeTitle ? themeTitle : "themeDetail", getTheme, { placeholderData: placeholderTheme });
+  } = useQuery<ThemeDetail>(themeTitle ? themeTitle : 'themeDetail', getTheme, { placeholderData: placeholderTheme });
   if (error) {
     console.log(error);
   }
@@ -77,7 +77,7 @@ export function ThemeDetails() {
               }
               avatar={
                 !isPlaceholderData ? (
-                  <IconButton title={theme.source + " theme"}>
+                  <IconButton title={theme.source + ' theme'}>
                     <FontAwesomeIcon icon={iconThemeTypeMap[theme.source]} />
                   </IconButton>
                 ) : (
@@ -104,7 +104,7 @@ export function ThemeDetails() {
             <CardContent>
               <ArticleGroup
                 articles={theme.related}
-                title={"Related Articles"}
+                title={'Related Articles'}
                 isPlaceholderData={isPlaceholderData}
               ></ArticleGroup>
             </CardContent>
