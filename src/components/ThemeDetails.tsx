@@ -6,17 +6,31 @@ import { iconThemeTypeMap } from '../utils/map';
 import { RelSummary } from './RelSummary';
 import { ArticleGroup } from './ArticleList';
 import { Chatbot } from './Chatbot';
-import { get } from 'aws-amplify/api';
-import { useQuery } from 'react-query';
+import { del, get } from 'aws-amplify/api';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useLocation } from 'react-router-dom';
 import { ThemeLinkList } from './ThemeLinkList';
 import { useMemo } from 'react';
 import { getPlaceHolderTheme } from '../utils/placeholder';
 
+async function delRelated(themeTitle: string, articleId: string) {
+  try {
+    const restOperation = del({
+      apiName: 'Dassie',
+      path: '/api/themes/' + themeTitle + '/related/' + articleId,
+    });
+    await restOperation.response;
+    console.log('delRelated call succeeded');
+  } catch (error) {
+    console.log('delRelated call failed: ');
+  }
+}
+
 export function ThemeDetails() {
   const placeholderTheme = useMemo(() => getPlaceHolderTheme(), []);
   const { pathname } = useLocation();
   const themeTitle = pathname.split('/').pop();
+  const queryClient = useQueryClient();
   const getTheme = async () => {
     const { body } = await get({
       apiName: 'Dassie',
@@ -24,6 +38,17 @@ export function ThemeDetails() {
     }).response;
     return JSON.parse(await body.text()) as ThemeDetail;
   };
+  const deleteRelated = useMutation({
+    mutationFn: async (articleId: string) => {
+      if (themeTitle) {
+        await delRelated(themeTitle, articleId);
+        queryClient.invalidateQueries(themeTitle);
+      }
+    },
+    onMutate: () => {
+      queryClient.cancelQueries(themeTitle);
+    },
+  });
   const {
     data: theme,
     error: error,
@@ -106,6 +131,7 @@ export function ThemeDetails() {
                 articles={theme.related}
                 title={'Related Articles'}
                 isPlaceholderData={isPlaceholderData}
+                onDeleteRelated={deleteRelated.mutate}
               ></ArticleGroup>
             </CardContent>
           </Card>
