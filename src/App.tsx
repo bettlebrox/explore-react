@@ -10,6 +10,7 @@ import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { AppBar, Button, Paper, Toolbar, Typography } from '@mui/material';
 import { Articles } from './components/Articles';
+import { Profile } from './components/Profile';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/theme/:themeTitle" element={<ThemeDetails />} />
               <Route path="/articles" element={<Articles />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </Paper>
         </>
