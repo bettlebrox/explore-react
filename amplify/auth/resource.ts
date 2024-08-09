@@ -17,18 +17,4 @@ export const auth = defineAuth({
       logoutUrls: ['http://localhost:5174/', 'https://main.d1tgde1goqkt1z.amplifyapp.com/'],
     },
   },
-  userAttributes: {
-    birthdate: {
-      mutable: false,
-    },
-    givenName: {
-      mutable: true,
-    },
-    familyName: {
-      mutable: true,
-    },
-    phoneNumber: {
-      mutable: true,
-    },
-  },
 });
