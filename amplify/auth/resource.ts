@@ -12,9 +12,30 @@ export const auth = defineAuth({
         clientId: secret('GOOGLE_CLIENT_ID'),
         clientSecret: secret('GOOGLE_CLIENT_SECRET'),
         scopes: ['email', 'profile', 'openid'],
+        attributeMapping: {
+          email: 'email',
+          familyName: 'family_name',
+          givenName: 'given_name',
+          birthdate: 'birthdate',
+          phoneNumber: 'phone_number',
+        },
       },
       callbackUrls: ['http://localhost:5174/', 'https://main.d1tgde1goqkt1z.amplifyapp.com/'],
       logoutUrls: ['http://localhost:5174/', 'https://main.d1tgde1goqkt1z.amplifyapp.com/'],
+    },
+  },
+  userAttributes: {
+    birthdate: {
+      mutable: false,
+    },
+    givenName: {
+      mutable: true,
+    },
+    familyName: {
+      mutable: true,
+    },
+    phoneNumber: {
+      mutable: true,
     },
   },
 });

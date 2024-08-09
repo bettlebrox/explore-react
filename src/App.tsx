@@ -7,8 +7,9 @@ import { Route, Routes } from 'react-router-dom';
 import { ThemeDetails } from './components/ThemeDetails';
 import { Dashboard } from './components/Dashboard';
 import { Authenticator } from '@aws-amplify/ui-react';
+import { Header } from './components/Header';
 import '@aws-amplify/ui-react/styles.css';
-import { AppBar, Button, Paper, Toolbar, Typography } from '@mui/material';
+import { Paper } from '@mui/material';
 import { Articles } from './components/Articles';
 import { Profile } from './components/Profile';
 
@@ -17,19 +18,7 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
         <>
-          <AppBar position="static" sx={{ minWidth: '100%' }}>
-            <Toolbar>
-              <Button color="inherit" href="/">
-                Home
-              </Button>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Dassie - {user?.signInDetails?.loginId}'s Second Brain
-              </Typography>
-              <Button color="inherit" onClick={signOut}>
-                Logout
-              </Button>
-            </Toolbar>
-          </AppBar>
+          <Header loginId={user?.signInDetails?.loginId ?? ''} onSignOut={signOut} />
           <Paper sx={{ p: 2, maxWidth: 1200, margin: 'auto' }}>
             <Routes>
               <Route path="/" element={<Dashboard />} />
