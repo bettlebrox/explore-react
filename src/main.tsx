@@ -7,6 +7,9 @@ import { Amplify } from 'aws-amplify';
 import outputs from '../amplify_outputs.json';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { cognitoUserPoolsTokenProvider } from 'aws-amplify/auth/cognito';
+import { ChromeExtensionSyncedStorage } from './utils/ChromeExtensionSyncedStorage.tsx';
+import { Hub } from 'aws-amplify/utils';
 
 Amplify.configure(outputs);
 const existingConfig = Amplify.getConfig();
@@ -26,11 +29,18 @@ Amplify.configure({
     REST: {
       ...existingConfig.API?.REST,
       Dassie: {
-        endpoint: 'https://p5cgnlejzk.execute-api.eu-west-1.amazonaws.com/prod', //'http://localhost:3000/',
+        endpoint: 'https://p5cgnlejzk.execute-api.eu-west-1.amazonaws.com/prod', //'http://localhost:3000',//
         region: 'eu-west-1', // Optional
       },
     },
   },
+});
+const authStorage = new ChromeExtensionSyncedStorage();
+cognitoUserPoolsTokenProvider.setKeyValueStorage(authStorage);
+
+Hub.listen('auth', ({ payload }) => {
+  console.debug('Hub event', payload);
+  window.postMessage({ type: 'auth', event: payload.event, payload: payload }, '*');
 });
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
