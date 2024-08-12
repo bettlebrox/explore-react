@@ -20,8 +20,16 @@ export const auth = defineAuth({
           phoneNumber: 'phone_number',
         },
       },
-      callbackUrls: ['http://localhost:5174/', 'https://main.d1tgde1goqkt1z.amplifyapp.com/'],
-      logoutUrls: ['http://localhost:5174/', 'https://main.d1tgde1goqkt1z.amplifyapp.com/'],
+      callbackUrls: [
+        'http://localhost:5174/',
+        'https://main.d1tgde1goqkt1z.amplifyapp.com/',
+        'chrome-extension://inngbfkedplilfmhecbohfcnplcjpgnk/',
+      ],
+      logoutUrls: [
+        'http://localhost:5174/',
+        'https://main.d1tgde1goqkt1z.amplifyapp.com/',
+        'chrome-extension://inngbfkedplilfmhecbohfcnplcjpgnk/sidepanel.html',
+      ],
     },
   },
   userAttributes: {
