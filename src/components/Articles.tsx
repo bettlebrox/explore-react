@@ -62,6 +62,8 @@ export function Articles() {
           >
             <MenuItem value="logged_at">Logged At</MenuItem>
             <MenuItem value="created_at">Created At</MenuItem>
+            <MenuItem value="updated_at">Updated At</MenuItem>
+            <MenuItem value="browse">Browses</MenuItem>
           </Select>
         </Grid>
         <Grid item xs={2}>

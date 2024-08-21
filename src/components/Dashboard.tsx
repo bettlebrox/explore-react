@@ -9,11 +9,11 @@ export function Dashboard() {
   };
   const topThemesQueryParams = {
     sortField: 'count_association',
-    max: '3',
+    max: '5',
   };
   const recentThemesQueryParams = {
     sortField: 'updated_at',
-    max: '3',
+    max: '5',
   };
   return (
     <>
