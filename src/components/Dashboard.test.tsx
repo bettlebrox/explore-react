@@ -71,6 +71,7 @@ describe('has headings', async () => {
       'Top Themes',
       'Recent Themes',
       'Custom Themes',
+      'Recently Browsed Themes',
     ]);
   });
 });
