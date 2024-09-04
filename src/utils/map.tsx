@@ -1,5 +1,15 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faStar, faPencil, faNewspaper, faLinkSlash, faLink, faRobot, faUser, faSearch, faTimeline } from '@fortawesome/free-solid-svg-icons';
+import {
+  faStar,
+  faPencil,
+  faNewspaper,
+  faLinkSlash,
+  faLink,
+  faRobot,
+  faUser,
+  faSearch,
+  faTimeline,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const iconThemeTypeMap: { [key: string]: IconProp } = {
   top: faStar,
