@@ -11,10 +11,6 @@ export function Dashboard() {
     sortField: 'count_association',
     max: '5',
   };
-  const recentThemesQueryParams = {
-    sortField: 'updated_at',
-    max: '5',
-  };
   const recentlyBrowsedThemesQueryParams = {
     sortField: 'recently_browsed',
     max: '5',
@@ -23,16 +19,13 @@ export function Dashboard() {
     <>
       <Grid container spacing={1}>
         <Grid item={true} xs={6}>
+          <ThemeGroup title="Recently Browsed Themes" expanded params={recentlyBrowsedThemesQueryParams} />
+        </Grid>
+        <Grid item={true} xs={6}>
           <ThemeGroup title="Top Themes" expanded params={topThemesQueryParams} />
         </Grid>
         <Grid item={true} xs={6}>
-          <ThemeGroup title="Recent Themes" expanded params={recentThemesQueryParams} />
-        </Grid>
-        <Grid item={true} xs={6}>
           <ThemeGroup title="Custom Themes" expanded params={customThemesQueryParams} addForm />
-        </Grid>
-        <Grid item={true} xs={6}>
-          <ThemeGroup title="Recently Browsed Themes" expanded params={recentlyBrowsedThemesQueryParams} />
         </Grid>
       </Grid>
     </>

@@ -68,10 +68,9 @@ describe('has headings', async () => {
       return heading.innerHTML;
     });
     expect(heading_texts, 'Headings should be present and correct').toEqual([
-      'Top Themes',
-      'Recent Themes',
-      'Custom Themes',
       'Recently Browsed Themes',
+      'Top Themes',
+      'Custom Themes',
     ]);
   });
 });
