@@ -13,6 +13,7 @@ export function Dashboard() {
   };
   const recentlyBrowsedThemesQueryParams = {
     sortField: 'recently_browsed',
+    source: 'custom,tab_thread,search_term',
     max: '5',
   };
   return (
