@@ -20,13 +20,13 @@ export function Dashboard() {
     <>
       <Grid container spacing={1}>
         <Grid item={true} xs={4}>
-          <ThemeGroup title="Recently Browsed Themes"  params={recentlyBrowsedThemesQueryParams} />
+          <ThemeGroup title="Recently Browsed Themes" params={recentlyBrowsedThemesQueryParams} />
         </Grid>
         <Grid item={true} xs={4}>
-          <ThemeGroup title="Top Themes"  params={topThemesQueryParams} />
+          <ThemeGroup title="Top Themes" params={topThemesQueryParams} />
         </Grid>
         <Grid item={true} xs={4}>
-          <ThemeGroup title="Custom Themes"  params={customThemesQueryParams} addForm />
+          <ThemeGroup title="Custom Themes" params={customThemesQueryParams} addForm />
         </Grid>
       </Grid>
     </>
