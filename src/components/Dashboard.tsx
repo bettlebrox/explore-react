@@ -19,14 +19,14 @@ export function Dashboard() {
   return (
     <>
       <Grid container spacing={1}>
-        <Grid item={true} xs={6}>
-          <ThemeGroup title="Recently Browsed Themes" expanded params={recentlyBrowsedThemesQueryParams} />
+        <Grid item={true} xs={4}>
+          <ThemeGroup title="Recently Browsed Themes"  params={recentlyBrowsedThemesQueryParams} />
         </Grid>
-        <Grid item={true} xs={6}>
-          <ThemeGroup title="Top Themes" expanded params={topThemesQueryParams} />
+        <Grid item={true} xs={4}>
+          <ThemeGroup title="Top Themes"  params={topThemesQueryParams} />
         </Grid>
-        <Grid item={true} xs={6}>
-          <ThemeGroup title="Custom Themes" expanded params={customThemesQueryParams} addForm />
+        <Grid item={true} xs={4}>
+          <ThemeGroup title="Custom Themes"  params={customThemesQueryParams} addForm />
         </Grid>
       </Grid>
     </>

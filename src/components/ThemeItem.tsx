@@ -14,7 +14,7 @@ import { getFormattedDate } from '../utils/format';
 import { iconThemeTypeMap } from '../utils/map';
 import { Link } from 'react-router-dom';
 import { UseMutationResult } from 'react-query';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 
 export function ThemeItem({
@@ -29,7 +29,7 @@ export function ThemeItem({
   onDeleteTheme: UseMutationResult<string, unknown, string, void>;
 }) {
   const [waiting, setWaiting] = React.useState(false);
-  const icon = waiting ? <CircularProgress size={16} /> : <FontAwesomeIcon icon={faTrash} />;
+  const icon = waiting ? <CircularProgress size={16} /> : <FontAwesomeIcon icon={faXmark} />;
   const actions = (
     <CardActions>
       <IconButton
@@ -77,7 +77,7 @@ export function ThemeItem({
     );
   }
   return (
-    <Card className="theme-item" variant="outlined" sx={{ minWidth: 520, display: 'flex' }}>
+    <Card className="theme-item" variant="outlined" sx={{ minWidth: 200, display: 'flex' }}>
       <CardActionArea component={Link} to={'/theme/' + theme.title}>
         <CardHeader
           title={
