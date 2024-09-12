@@ -29,7 +29,9 @@ Amplify.configure({
     REST: {
       ...existingConfig.API?.REST,
       Dassie: {
-        endpoint: 'https://p5cgnlejzk.execute-api.eu-west-1.amazonaws.com/prod', //'http://localhost:3000',//
+        endpoint: import.meta.env.DEV
+          ? 'http://localhost:3000'
+          : 'https://p5cgnlejzk.execute-api.eu-west-1.amazonaws.com/prod',
         region: 'eu-west-1', // Optional
       },
     },

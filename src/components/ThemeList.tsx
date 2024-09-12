@@ -2,22 +2,8 @@ import { Typography } from '@mui/material';
 import { Theme } from '../interfaces/Theme';
 import { ThemeItem } from './ThemeItem';
 import { ThemeForm } from './ThemeForm';
-import { useMemo } from 'react';
-import { del, get, post } from 'aws-amplify/api';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
-
-const getThemes = async ({ queryParams }: { queryParams: Record<string, string> }) => {
-  queryParams['sortField'] = queryParams['sortField'] || 'count_association';
-  queryParams['max'] = queryParams['max'] || '3';
-  const { body } = await get({
-    apiName: 'Dassie',
-    path: '/api/themes',
-    options: {
-      queryParams: queryParams,
-    },
-  }).response;
-  return JSON.parse(await body.text()) as Theme[];
-};
+import { del, post } from 'aws-amplify/api';
+import { useMutation, useQueryClient } from 'react-query';
 
 async function delTheme(title: string) {
   try {
@@ -55,24 +41,21 @@ async function postItem(title: string, handleSubmitComplete: () => void) {
   }
 }
 
-function getPlaceHolderThemes(): Theme[] {
-  return new Array<Theme>(3)
-    .fill({
-      id: '1',
-      source: 'skeleton',
-      recurrent_count: 0,
-      sporadic_count: 0,
-      article_count: 0,
-      title: '',
-      original_title: '',
-      summary: null,
-      created_at: '',
-      updated_at: '',
-    })
-    .map((theme, index) => ({ ...theme, id: index.toString() }));
-}
-export function ThemeList({ params, expanded }: { params: Record<string, string>; expanded?: boolean }) {
-  const placeholderThemes = useMemo(() => getPlaceHolderThemes(), []);
+export function ThemeList({
+  params,
+  expanded,
+  textFilter,
+  themes,
+  isPlaceholderData,
+  error,
+}: {
+  params: Record<string, string>;
+  expanded?: boolean;
+  textFilter?: string;
+  themes: Theme[];
+  isPlaceholderData: boolean;
+  error: Error | null;
+}) {
   const queryClient = useQueryClient();
 
   const deleteTheme = useMutation({
@@ -85,27 +68,22 @@ export function ThemeList({ params, expanded }: { params: Record<string, string>
       queryClient.cancelQueries(['themes', params]);
     },
   });
-  const {
-    data: themes,
-    error: error,
-    isPlaceholderData: isPlaceholderData,
-  } = useQuery<Theme[]>(['themes', params], () => getThemes({ queryParams: params }), {
-    placeholderData: placeholderThemes,
-  });
   if (error || !themes) return <Typography align="left">Error</Typography>;
   return (
     <>
-      {themes.map((theme) => {
-        return (
-          <ThemeItem
-            key={theme.id}
-            theme={theme}
-            expanded={expanded}
-            isPlaceholderData={isPlaceholderData}
-            onDeleteTheme={deleteTheme}
-          />
-        );
-      })}
+      {themes
+        .filter((theme) => theme.original_title.toLowerCase().includes(textFilter || ''))
+        .map((theme) => {
+          return (
+            <ThemeItem
+              key={theme.id}
+              theme={theme}
+              expanded={expanded}
+              isPlaceholderData={isPlaceholderData}
+              onDeleteTheme={deleteTheme}
+            />
+          );
+        })}
     </>
   );
 }
@@ -113,12 +91,20 @@ export function ThemeGroup({
   title,
   expanded,
   params,
+  themes,
+  isPlaceholderData,
+  error,
   addForm,
+  textFilter,
 }: {
   title: string;
   expanded?: boolean;
   params: Record<string, string>;
+  themes: Theme[];
+  isPlaceholderData: boolean;
+  error: Error | null;
   addForm?: boolean;
+  textFilter?: string;
 }) {
   const queryClient = useQueryClient();
   const addTheme = useMutation({
@@ -137,7 +123,14 @@ export function ThemeGroup({
         {title}
       </Typography>
       {addForm && <ThemeForm onAddTheme={addTheme} />}
-      <ThemeList expanded={expanded} params={params} />
+      <ThemeList
+        expanded={expanded}
+        params={params}
+        themes={themes}
+        isPlaceholderData={isPlaceholderData}
+        error={error}
+        textFilter={textFilter}
+      />
     </>
   );
 }

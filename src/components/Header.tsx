@@ -4,12 +4,12 @@ import { fetchUserAttributes } from 'aws-amplify/auth';
 export function Header({ loginId, onSignOut }: { loginId: string; onSignOut?: (() => void) | undefined }) {
   const [givenName, setGivenName] = useState<string>('loading...');
   async function fetchGivenName(loginId: string) {
-    const atts = await fetchUserAttributes();
-    setGivenName(atts.given_name ?? loginId);
+    const attributes = await fetchUserAttributes();
+    setGivenName(attributes.given_name ?? loginId);
   }
   fetchGivenName(loginId);
   return (
-    <AppBar position="static" sx={{ minWidth: '100%' }}>
+    <AppBar position="static" sx={{ width: '100%', margin: '0 auto' }}>
       <Toolbar>
         <Button color="inherit" href="/">
           Home
