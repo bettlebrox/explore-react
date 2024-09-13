@@ -190,7 +190,7 @@ export function Dashboard() {
             }}
             renderOption={(props, option) => {
               const { ...optionProps } = props;
-              if('key' in optionProps) {
+              if ('key' in optionProps) {
                 delete optionProps.key;
               }
               return (
