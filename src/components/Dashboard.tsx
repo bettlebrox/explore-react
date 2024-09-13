@@ -87,7 +87,7 @@ export function Dashboard() {
     mutationFn: async (title: string) => {
       await postItem(title, (response) => {
         queryClient.invalidateQueries(['themes', customThemesQueryParams]);
-        if (response && response.title) {
+        if (response && 'title' in response) {
           navigate(`/theme/${response.title}`);
         } else {
           console.error('Invalid response: title is missing');
@@ -189,8 +189,10 @@ export function Dashboard() {
               return option.original_title;
             }}
             renderOption={(props, option) => {
-              const { key, ...optionProps } = props;
-              console.debug(key);
+              const { ...optionProps } = props;
+              if('key' in optionProps) {
+                delete optionProps.key;
+              }
               return (
                 <li key={option.id} {...optionProps}>
                   {option.original_title}
