@@ -1,8 +1,7 @@
 import { Typography } from '@mui/material';
 import { Theme } from '../interfaces/Theme';
 import { ThemeItem } from './ThemeItem';
-import { ThemeForm } from './ThemeForm';
-import { del, post } from 'aws-amplify/api';
+import { del } from 'aws-amplify/api';
 import { useMutation, useQueryClient } from 'react-query';
 
 async function delTheme(title: string) {
@@ -18,29 +17,6 @@ async function delTheme(title: string) {
   }
 }
 
-async function postItem(title: string, handleSubmitComplete: () => void) {
-  try {
-    const restOperation = post({
-      apiName: 'Dassie',
-      path: '/api/themes',
-      options: {
-        body: {
-          title: title,
-        },
-      },
-    });
-
-    const { body } = await restOperation.response;
-    const response = await body.json();
-    handleSubmitComplete();
-    console.log('POST call succeeded');
-    console.log(response);
-  } catch (error) {
-    console.log('POST call failed: ');
-    handleSubmitComplete();
-  }
-}
-
 export function ThemeList({
   params,
   expanded,
@@ -48,6 +24,7 @@ export function ThemeList({
   themes,
   isPlaceholderData,
   error,
+  limit,
 }: {
   params: Record<string, string>;
   expanded?: boolean;
@@ -55,6 +32,7 @@ export function ThemeList({
   themes: Theme[];
   isPlaceholderData: boolean;
   error: Error | null;
+  limit?: number;
 }) {
   const queryClient = useQueryClient();
 
@@ -73,6 +51,7 @@ export function ThemeList({
     <>
       {themes
         .filter((theme) => theme.original_title.toLowerCase().includes(textFilter || ''))
+        .slice(0, limit)
         .map((theme) => {
           return (
             <ThemeItem
@@ -94,8 +73,8 @@ export function ThemeGroup({
   themes,
   isPlaceholderData,
   error,
-  addForm,
   textFilter,
+  limit,
 }: {
   title: string;
   expanded?: boolean;
@@ -103,26 +82,14 @@ export function ThemeGroup({
   themes: Theme[];
   isPlaceholderData: boolean;
   error: Error | null;
-  addForm?: boolean;
   textFilter?: string;
+  limit?: number;
 }) {
-  const queryClient = useQueryClient();
-  const addTheme = useMutation({
-    mutationFn: async (title: string) => {
-      await postItem(title, () => {});
-      queryClient.invalidateQueries(['themes', params]);
-      return title;
-    },
-    onMutate: () => {
-      queryClient.cancelQueries(['themes', params]);
-    },
-  });
   return (
     <>
       <Typography variant="h6" align="left">
         {title}
       </Typography>
-      {addForm && <ThemeForm onAddTheme={addTheme} />}
       <ThemeList
         expanded={expanded}
         params={params}
@@ -130,6 +97,7 @@ export function ThemeGroup({
         isPlaceholderData={isPlaceholderData}
         error={error}
         textFilter={textFilter}
+        limit={limit}
       />
     </>
   );

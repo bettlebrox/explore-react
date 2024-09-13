@@ -36,7 +36,11 @@ export function ThemeDetails() {
       apiName: 'Dassie',
       path: '/api/themes/' + themeTitle,
     }).response;
-    return JSON.parse(await body.text()) as ThemeDetail;
+    const themeDetail = JSON.parse(await body.text()) as ThemeDetail;
+    if (themeDetail.source == 'custom' && !themeDetail.summary) {
+      throw new Error('No summary');
+    }
+    return themeDetail;
   };
   const deleteRelated = useMutation({
     mutationFn: async (articleId: string) => {
@@ -53,7 +57,12 @@ export function ThemeDetails() {
     data: theme,
     error: error,
     isPlaceholderData: isPlaceholderData,
-  } = useQuery<ThemeDetail>(themeTitle ? themeTitle : 'themeDetail', getTheme, { placeholderData: placeholderTheme });
+  } = useQuery<ThemeDetail>(themeTitle ? themeTitle : 'themeDetail', getTheme, {
+    placeholderData: placeholderTheme,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+  });
   if (error) {
     console.log(error);
   }
