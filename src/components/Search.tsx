@@ -117,7 +117,12 @@ export function Search() {
     <>
       <Grid container spacing={1}>
         <Grid item={true} xs={12}>
-          <CommandBar searchOptionsList={searchOptions} loadingNewTheme={loadingNewTheme} setLoadingNewTheme={setLoadingNewTheme} addTheme={addTheme} />
+          <CommandBar
+            searchOptionsList={searchOptions}
+            loadingNewTheme={loadingNewTheme}
+            setLoadingNewTheme={setLoadingNewTheme}
+            addTheme={addTheme}
+          />
         </Grid>
         <Grid item={true} xs={4}>
           <ThemeGroup
