@@ -13,6 +13,7 @@ import { Paper } from '@mui/material';
 import { Articles } from './components/Articles';
 import { Profile } from './components/Profile';
 import { useEffect, useState } from 'react';
+import { Search } from './components/Search';
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -38,6 +39,7 @@ function App() {
               <Route path="/theme/:themeTitle" element={<ThemeDetails />} />
               <Route path="/articles" element={<Articles />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/search/:query" element={<Search />} />
             </Routes>
           </Paper>
         </>

@@ -1,10 +1,11 @@
-import { Autocomplete, Grid, TextField, createFilterOptions } from '@mui/material';
+import { Grid } from '@mui/material';
 import { ThemeGroup } from './ThemeList';
-import React from 'react';
+import React, { useState } from 'react';
 import { get, post } from 'aws-amplify/api';
 import { Theme } from '../interfaces/Theme';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom'; // Add this import
+import { CommandBar } from './CommandBar';
 
 interface SearchOption {
   inputValue?: string;
@@ -13,7 +14,6 @@ interface SearchOption {
   source?: string;
   id?: string;
 }
-const filter = createFilterOptions<SearchOption>();
 const defaultItems = 25;
 async function postItem(title: string, handleSubmitComplete: (response: Theme | Error) => void) {
   try {
@@ -83,6 +83,7 @@ export function Dashboard() {
     max: defaultItems.toString(),
   };
   const queryClient = useQueryClient();
+  const [loadingNewTheme, setLoadingNewTheme] = useState(false);
   const addTheme = useMutation({
     mutationFn: async (title: string) => {
       await postItem(title, (response) => {
@@ -157,59 +158,11 @@ export function Dashboard() {
     <>
       <Grid container spacing={1}>
         <Grid item={true} xs={12}>
-          <Autocomplete
-            freeSolo
-            options={searchOptions}
-            selectOnFocus
-            clearOnBlur
-            handleHomeEndKeys
-            filterOptions={(options, params) => {
-              const filtered = filter(options, params);
-              const { inputValue } = params;
-              const isExisting = options.some(
-                (option) => inputValue.toLowerCase() === option.original_title.toLowerCase(),
-              );
-              if (inputValue !== '' && !isExisting) {
-                filtered.push({
-                  inputValue,
-                  original_title: `Add Topic: "${inputValue}"`,
-                  title: inputValue,
-                  source: 'custom',
-                });
-              }
-              return filtered;
-            }}
-            getOptionLabel={(option) => {
-              if (typeof option === 'string') {
-                return option;
-              }
-              if (option.inputValue) {
-                return option.inputValue;
-              }
-              return option.original_title;
-            }}
-            renderOption={(props, option) => {
-              const { ...optionProps } = props;
-              if ('key' in optionProps) {
-                delete optionProps.key;
-              }
-              return (
-                <li key={option.id} {...optionProps}>
-                  {option.original_title}
-                </li>
-              );
-            }}
-            groupBy={(option) => option.source || ''}
-            renderInput={(params) => <TextField {...params} label="Search" />}
-            onChange={(_event, newValue, reason) => {
-              if (reason === 'selectOption' && newValue && typeof newValue !== 'string') {
-                if (newValue.source === 'custom' && newValue.original_title.startsWith('Add Topic:')) {
-                  addTheme.mutate(newValue.title);
-                } else {
-                  navigate(`/theme/${newValue.title}`);
-                }
-              }
-            }}
+          <CommandBar
+            setLoadingNewTheme={setLoadingNewTheme}
+            loadingNewTheme={loadingNewTheme}
+            searchOptionsList={searchOptions}
+            addTheme={addTheme}
           />
         </Grid>
         <Grid item={true} xs={4}>
