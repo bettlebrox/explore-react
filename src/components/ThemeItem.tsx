@@ -26,22 +26,25 @@ export function ThemeItem({
   theme: Theme;
   expanded?: boolean;
   isPlaceholderData?: boolean;
-  onDeleteTheme: UseMutationResult<string, unknown, string, void>;
+  onDeleteTheme?: UseMutationResult<string, unknown, string, void>;
 }) {
   const [waiting, setWaiting] = React.useState(false);
   const icon = waiting ? <CircularProgress size={16} /> : <FontAwesomeIcon icon={faXmark} />;
   const actions = (
     <CardActions>
-      <IconButton
+      {onDeleteTheme ? <IconButton
         onClick={() => {
-          setWaiting(true);
-          onDeleteTheme.mutate(theme.title);
+          if (onDeleteTheme) {
+            setWaiting(true);
+            onDeleteTheme.mutate(theme.title);
+          }
         }}
         disabled={waiting}
         size="small"
       >
-        {icon}
-      </IconButton>
+          {icon}
+        </IconButton>
+       : null}
     </CardActions>
   );
   let subheader = <></>;

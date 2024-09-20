@@ -1,11 +1,12 @@
 import { Grid } from '@mui/material';
-import { ThemeGroup } from './ThemeList';
 import React, { useState } from 'react';
 import { get, post } from 'aws-amplify/api';
 import { Theme } from '../interfaces/Theme';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom'; // Add this import
 import { CommandBar } from './CommandBar';
+import { SearchResult } from '../interfaces/SearchResult';
+import { SearchResultGroup } from './SearchResultList';
 
 interface SearchOption {
   inputValue?: string;
@@ -39,20 +40,22 @@ async function postItem(title: string, handleSubmitComplete: (response: Theme | 
   }
 }
 
-const getThemes = async ({ queryParams }: { queryParams: Record<string, string> }) => {
+const getSearchResult = async ({ queryParams }: { queryParams: Record<string, string> }) => {
   queryParams['sortField'] = queryParams['sortField'] || 'count_association';
   queryParams['max'] = queryParams['max'] || defaultItems.toString();
+  queryParams['query'] = queryParams['query'] || '';
+  const { query, ...restParams } = queryParams;
   const { body } = await get({
     apiName: 'Dassie',
-    path: '/api/themes',
+    path: '/api/search/' + query ,
     options: {
-      queryParams: queryParams,
+      queryParams: restParams,
     },
   }).response;
-  return JSON.parse(await body.text()) as Theme[];
+  return JSON.parse(await body.text()) as SearchResult;
 };
-function getPlaceHolderThemes(): Theme[] {
-  return new Array<Theme>(3)
+function getPlaceHolderSearchResult(): SearchResult {
+  return {themes: new Array<Theme>(3)
     .fill({
       id: '1',
       source: 'skeleton',
@@ -65,22 +68,23 @@ function getPlaceHolderThemes(): Theme[] {
       created_at: '',
       updated_at: '',
     })
-    .map((theme, index) => ({ ...theme, id: index.toString() }));
+    .map((theme, index) => ({ ...theme, id: index.toString() })),
+  articles: []};
 }
 export function Search() {
   const { query } = useParams<{ query: string }>();
   const navigate = useNavigate(); // Initialize navigate
-  const themesQueryParams = {
+  const searchQueryParams = {
     sortField: 'count_association',
     max: defaultItems.toString(),
-    filter: query || '',
+    query: query || '',
   };
   const [loadingNewTheme, setLoadingNewTheme] = useState(false);
   const queryClient = useQueryClient();
   const addTheme = useMutation({
     mutationFn: async (title: string) => {
       await postItem(title, (response) => {
-        queryClient.invalidateQueries(['search', themesQueryParams]);
+        queryClient.invalidateQueries(['search', searchQueryParams]);
         if (response && 'title' in response) {
           navigate(`/theme/${response.title}`);
         } else {
@@ -90,27 +94,27 @@ export function Search() {
       return title;
     },
     onMutate: () => {
-      queryClient.cancelQueries(['search', themesQueryParams]);
+      queryClient.cancelQueries(['search', searchQueryParams]);
     },
   });
   const {
-    data: themes,
-    error: themesError,
-    isPlaceholderData: themesIsPlaceholderData,
-  } = useQuery<Theme[]>(['search', themesQueryParams], () => getThemes({ queryParams: themesQueryParams }), {
-    placeholderData: getPlaceHolderThemes(),
+    data: searchResult,
+    error: searchResultError,
+    isPlaceholderData: searchResultIsPlaceholderData,
+  } = useQuery<SearchResult>(['search', searchQueryParams], () => getSearchResult({ queryParams: searchQueryParams }), {
+    placeholderData: getPlaceHolderSearchResult(),
   });
   const searchOptions = React.useMemo<SearchOption[]>(
     () =>
       [
-        ...(themes?.map((theme) => ({
+        ...(searchResult?.themes?.map((theme) => ({
           id: theme.id,
           title: theme.title,
           original_title: theme.original_title,
           source: 'top',
         })) || []),
       ].filter((value, index, self) => self.indexOf(value) === index),
-    [themes],
+    [searchResult?.themes],
   );
 
   return (
@@ -124,13 +128,13 @@ export function Search() {
             addTheme={addTheme}
           />
         </Grid>
-        <Grid item={true} xs={4}>
-          <ThemeGroup
+        <Grid item={true} xs={12}>
+          <SearchResultGroup
             title="Search Results"
-            params={themesQueryParams}
-            themes={themes || []}
-            isPlaceholderData={themesIsPlaceholderData}
-            error={themesError as Error | null}
+            result={searchResult}
+            expanded={true}
+            isPlaceholderData={searchResultIsPlaceholderData}
+            error={searchResultError as Error | null}
             limit={7}
           />
         </Grid>

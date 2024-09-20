@@ -34,15 +34,16 @@ export function ArticleItem({
   const icon = waiting ? <CircularProgress size={16} /> : <FontAwesomeIcon icon={faTrash} />;
   const actions = (
     <CardActions>
-      <IconButton
+      {onDeleteRelated ? <IconButton
         size="small"
         onClick={() => {
           setWaiting(true);
           onDeleteRelated?.(article.id);
         }}
       >
-        {icon}
-      </IconButton>
+            {icon}
+          </IconButton>
+         : null}
     </CardActions>
   );
   const favicon = !isPlaceholderData ? (

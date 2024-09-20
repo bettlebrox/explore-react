@@ -17,11 +17,13 @@ export function CommandBar({
   loadingNewTheme,
   setLoadingNewTheme,
   addTheme,
+  initialValue,
 }: {
   searchOptionsList: SearchOption[];
   loadingNewTheme: boolean;
   setLoadingNewTheme: React.Dispatch<React.SetStateAction<boolean>>;
   addTheme: UseMutationResult<string, unknown, string, unknown>;
+  initialValue?: string;
 }) {
   const navigate = useNavigate(); // Initialize navigate
   return (
@@ -41,6 +43,7 @@ export function CommandBar({
           filtered.push({
             inputValue,
             original_title: `Add Topic: "${inputValue}"`,
+            id: '-1',
             title: inputValue,
             source: 'custom',
           });
@@ -67,6 +70,7 @@ export function CommandBar({
           </li>
         );
       }}
+      value={initialValue}
       groupBy={(option) => option.source || ''}
       renderInput={(params) => (
         <TextField
