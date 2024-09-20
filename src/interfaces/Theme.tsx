@@ -13,5 +13,3 @@ export interface Theme extends DassieItem {
   sporadic_count: number;
   article_count: number;
 }
-
-

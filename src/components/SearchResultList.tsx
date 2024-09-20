@@ -3,7 +3,6 @@ import { ThemeItem } from './ThemeItem';
 import { SearchResult } from '../interfaces/SearchResult';
 import { ArticleItem } from './ArticleItem';
 
-
 export function SearchResultList({
   expanded,
   textFilter,
@@ -27,26 +26,13 @@ export function SearchResultList({
         .filter((theme) => theme.original_title.toLowerCase().includes(textFilter || ''))
         .slice(0, limit)
         .map((theme) => {
-          return (
-            <ThemeItem
-              key={theme.id}
-              theme={theme}
-              expanded={expanded}
-              isPlaceholderData={isPlaceholderData}
-            />
-          );
+          return <ThemeItem key={theme.id} theme={theme} expanded={expanded} isPlaceholderData={isPlaceholderData} />;
         })}
-        {result.articles
+      {result.articles
         .filter((article) => article.original_title.toLowerCase().includes(textFilter || ''))
         .slice(0, limit)
         .map((article) => {
-          return (
-            <ArticleItem
-              key={article.id}
-              article={article}
-              isPlaceholderData={isPlaceholderData}
-            />
-          );
+          return <ArticleItem key={article.id} article={article} isPlaceholderData={isPlaceholderData} />;
         })}
     </>
   );

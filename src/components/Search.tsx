@@ -47,7 +47,7 @@ const getSearchResult = async ({ queryParams }: { queryParams: Record<string, st
   const { query, ...restParams } = queryParams;
   const { body } = await get({
     apiName: 'Dassie',
-    path: '/api/search/' + query ,
+    path: '/api/search/' + query,
     options: {
       queryParams: restParams,
     },
@@ -55,21 +55,23 @@ const getSearchResult = async ({ queryParams }: { queryParams: Record<string, st
   return JSON.parse(await body.text()) as SearchResult;
 };
 function getPlaceHolderSearchResult(): SearchResult {
-  return {themes: new Array<Theme>(3)
-    .fill({
-      id: '1',
-      source: 'skeleton',
-      recurrent_count: 0,
-      sporadic_count: 0,
-      article_count: 0,
-      title: '',
-      original_title: '',
-      summary: null,
-      created_at: '',
-      updated_at: '',
-    })
-    .map((theme, index) => ({ ...theme, id: index.toString() })),
-  articles: []};
+  return {
+    themes: new Array<Theme>(3)
+      .fill({
+        id: '1',
+        source: 'skeleton',
+        recurrent_count: 0,
+        sporadic_count: 0,
+        article_count: 0,
+        title: '',
+        original_title: '',
+        summary: null,
+        created_at: '',
+        updated_at: '',
+      })
+      .map((theme, index) => ({ ...theme, id: index.toString() })),
+    articles: [],
+  };
 }
 export function Search() {
   const { query } = useParams<{ query: string }>();

@@ -32,19 +32,20 @@ export function ThemeItem({
   const icon = waiting ? <CircularProgress size={16} /> : <FontAwesomeIcon icon={faXmark} />;
   const actions = (
     <CardActions>
-      {onDeleteTheme ? <IconButton
-        onClick={() => {
-          if (onDeleteTheme) {
-            setWaiting(true);
-            onDeleteTheme.mutate(theme.title);
-          }
-        }}
-        disabled={waiting}
-        size="small"
-      >
+      {onDeleteTheme ? (
+        <IconButton
+          onClick={() => {
+            if (onDeleteTheme) {
+              setWaiting(true);
+              onDeleteTheme.mutate(theme.title);
+            }
+          }}
+          disabled={waiting}
+          size="small"
+        >
           {icon}
         </IconButton>
-       : null}
+      ) : null}
     </CardActions>
   );
   let subheader = <></>;

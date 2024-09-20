@@ -150,9 +150,7 @@ export function Dashboard() {
           original_title: theme.original_title,
           source: 'top',
         })) || []),
-      ].filter((value, index, self) => 
-        index === self.findIndex((t) => t.id === value.id)
-      ),
+      ].filter((value, index, self) => index === self.findIndex((t) => t.id === value.id)),
     [recentlyBrowsedThemes, customThemes, topThemes],
   );
 
