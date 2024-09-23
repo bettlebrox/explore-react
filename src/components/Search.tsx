@@ -138,6 +138,7 @@ export function Search() {
             isPlaceholderData={searchResultIsPlaceholderData}
             error={searchResultError as Error | null}
             limit={7}
+            query={query}
           />
         </Grid>
       </Grid>

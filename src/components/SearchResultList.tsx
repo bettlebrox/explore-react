@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import { ThemeItem } from './ThemeItem';
 import { SearchResult } from '../interfaces/SearchResult';
 import { ArticleItem } from './ArticleItem';
+import { ActionItem } from './ActionItem';
 
 export function SearchResultList({
   expanded,
@@ -10,6 +11,7 @@ export function SearchResultList({
   isPlaceholderData,
   error,
   limit,
+  query,
 }: {
   expanded?: boolean;
   textFilter?: string;
@@ -17,11 +19,15 @@ export function SearchResultList({
   isPlaceholderData: boolean;
   error: Error | null;
   limit?: number;
+  query: string | undefined;
 }) {
   if (error || !result) return <Typography align="left">Error</Typography>;
 
   return (
     <>
+      {query && <ActionItem actionName="claude" query={query} />}
+      {query && <ActionItem actionName="perplexity" query={query} />}
+      {query && <ActionItem actionName="google" query={query} />}
       {result.themes
         .filter((theme) => theme.original_title.toLowerCase().includes(textFilter || ''))
         .slice(0, limit)
@@ -45,6 +51,7 @@ export function SearchResultGroup({
   error,
   textFilter,
   limit,
+  query,
 }: {
   title: string;
   expanded?: boolean;
@@ -53,6 +60,7 @@ export function SearchResultGroup({
   error: Error | null;
   textFilter?: string;
   limit?: number;
+  query: string | undefined;
 }) {
   return (
     <>
@@ -66,6 +74,7 @@ export function SearchResultGroup({
         error={error}
         textFilter={textFilter}
         limit={limit}
+        query={query}
       />
     </>
   );
