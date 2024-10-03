@@ -77,6 +77,11 @@ export function ThemeItem({
         <Typography variant="body2" align="left">
           {theme.summary}
         </Typography>
+        {theme.score ? (
+          <Typography variant="body2" align="right">
+            {theme.score}
+          </Typography>
+        ) : null}
       </>
     );
   }

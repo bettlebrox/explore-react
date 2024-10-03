@@ -77,7 +77,6 @@ export function Search() {
   const { query } = useParams<{ query: string }>();
   const navigate = useNavigate(); // Initialize navigate
   const searchQueryParams = {
-    sortField: 'count_association',
     max: defaultItems.toString(),
     query: query || '',
   };
@@ -137,7 +136,7 @@ export function Search() {
             expanded={true}
             isPlaceholderData={searchResultIsPlaceholderData}
             error={searchResultError as Error | null}
-            limit={7}
+            limit={30}
             query={query}
           />
         </Grid>

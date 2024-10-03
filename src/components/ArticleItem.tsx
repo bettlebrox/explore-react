@@ -87,6 +87,11 @@ export function ArticleItem({
                     {article.summary}
                   </Typography>
                 </Box>
+                {article.score ? (
+                  <Typography variant="body2" align="right">
+                    {article.score}
+                  </Typography>
+                ) : null}
               </>
             ) : (
               <Skeleton variant="text" animation="wave" width={200}></Skeleton>
