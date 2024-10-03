@@ -38,7 +38,12 @@ export function ActionItem({ actionName, query }: { actionName: string; query: s
         <CardHeader
           title={<Typography>{actionTypesMap[actionName].prompt + query}</Typography>}
           align="left"
-          avatar={<img src={'https://logo.clearbit.com/' + actionTypesMap[actionName].domain + '?size=28'} alt={actionTypesMap[actionName].display + ' logo'} />}
+          avatar={
+            <img
+              src={'https://logo.clearbit.com/' + actionTypesMap[actionName].domain + '?size=28'}
+              alt={actionTypesMap[actionName].display + ' logo'}
+            />
+          }
         />
       </CardActionArea>
     </Card>
