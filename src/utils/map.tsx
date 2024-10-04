@@ -9,6 +9,9 @@ import {
   faUser,
   faSearch,
   faTimeline,
+  faLayerGroup,
+  faLightbulb,
+  faFish,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const iconThemeTypeMap: { [key: string]: IconProp } = {
@@ -17,6 +20,9 @@ export const iconThemeTypeMap: { [key: string]: IconProp } = {
   article: faNewspaper,
   search_term: faSearch,
   tab_thread: faTimeline,
+  recurrent: faLayerGroup,
+  sporadic: faFish,
+  proposition: faLightbulb,
 };
 
 export const iconRelTypeMap: { [key: string]: IconProp } = {
