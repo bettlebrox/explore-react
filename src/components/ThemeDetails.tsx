@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom';
 import { ThemeLinkList } from './ThemeLinkList';
 import { useMemo } from 'react';
 import { getPlaceHolderTheme } from '../utils/placeholder';
+import Graph from './Graph';
 
 async function delRelated(themeTitle: string, articleId: string) {
   try {
@@ -132,6 +133,9 @@ export function ThemeDetails() {
             </CardContent>
             <CardActions></CardActions>
           </Card>
+        </Grid>
+        <Grid item={true} xs={12}>
+          <Graph />
         </Grid>
         <Grid item={true} xs={12}>
           <Card>
