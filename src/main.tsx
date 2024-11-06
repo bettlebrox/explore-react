@@ -31,7 +31,7 @@ Amplify.configure({
       Dassie: {
         endpoint: import.meta.env.DEV
           ? 'http://localhost:3000'
-          : 'https://2eh5dqfti6.execute-api.eu-west-1.amazonaws.com/prod/',
+          : 'https://2eh5dqfti6.execute-api.eu-west-1.amazonaws.com/prod',
         region: 'eu-west-1', // Optional
       },
     },
