@@ -1,0 +1,2542 @@
+{
+  "results": [
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "3ea99b29-2dbe-4139-93c9-4971206daf470",
+        "~entityType": "relationship",
+        "~start": "32303752-6bb0-4dd2-8a6e-1f0d2fa368580",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "LOCATION",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "32303752-6bb0-4dd2-8a6e-1f0d2fa368580",
+        "~entityType": "node",
+        "~labels": ["Company"],
+        "~properties": {
+          "name": "Record go Club",
+          "id": "dbr:RecordGoClub",
+          "label": "Record go Club",
+          "serviceType": "Car Rental"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "5b528c0c-6588-44ff-a8ed-f071ae5735851",
+        "~entityType": "relationship",
+        "~start": "cf64314a-c1cb-4f67-a39e-ffc75c17c92b0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "LOCATION",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "cf64314a-c1cb-4f67-a39e-ffc75c17c92b0",
+        "~entityType": "node",
+        "~labels": ["Service"],
+        "~properties": {
+          "label": "Car Hire",
+          "name": "Car Hire",
+          "id": "dbr:Car_Hire"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "28eb06d8-1e89-43f6-a6c1-e1ea4b9cbae30",
+        "~entityType": "relationship",
+        "~start": "b1ba63f9-3175-44ce-a2cc-7d1d112760f30",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "LOCATION",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "b1ba63f9-3175-44ce-a2cc-7d1d112760f30",
+        "~entityType": "node",
+        "~labels": ["Action"],
+        "~properties": {
+          "name": "Booking Management",
+          "endDate": "2024-10-19T20:00:00",
+          "actionType": "Manage Booking",
+          "date": "2024-10-12T22:00:00"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "723bb38d-662d-46f8-bb6a-9a1fd206cec81",
+        "~entityType": "relationship",
+        "~start": "3327990c-a314-423c-9c35-2aab6f4cb8430",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "LOCATED_AT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "3327990c-a314-423c-9c35-2aab6f4cb8430",
+        "~entityType": "node",
+        "~labels": ["Service"],
+        "~properties": {
+          "driverAgeRange": "30-65",
+          "currency": "EUR",
+          "name": "Car Rental",
+          "price": 170.41,
+          "driverCountryOfResidence": "Ireland",
+          "location": "Palma de Mallorca Airport",
+          "pickupDate": "2024-09-11T11:00:00",
+          "pickUpDate": "2024-09-11T11:00:00",
+          "dropoffDate": "2024-09-11T11:00:00",
+          "dropOffDate": "2024-09-11T11:00:00"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "eb259a6d-af32-4bc3-ab69-fb7549fb90881",
+        "~entityType": "relationship",
+        "~start": "32303752-6bb0-4dd2-8a6e-1f0d2fa368580",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "LOCATED_AT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "32303752-6bb0-4dd2-8a6e-1f0d2fa368580",
+        "~entityType": "node",
+        "~labels": ["Company"],
+        "~properties": {
+          "name": "Record go Club",
+          "id": "dbr:RecordGoClub",
+          "label": "Record go Club",
+          "serviceType": "Car Rental"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      },
+      "q": {
+        "~id": "135ae527-d3bc-46d2-9c21-027452a3c5530",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~type": "AIRLINE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      },
+      "q": {
+        "~id": "c3cea611-da37-4de7-aa0a-a8c899dfad330",
+        "~entityType": "relationship",
+        "~start": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~end": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~type": "AIRLINE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~entityType": "node",
+        "~labels": ["Aircraft"],
+        "~properties": {
+          "name": "Airbus A320",
+          "aircraftType": "Twin-Jet"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Dublin International Airport",
+          "code": "DUB"
+        }
+      },
+      "q": {
+        "~id": "9b30f31f-b744-41e6-9ad9-5029fdc8aa130",
+        "~entityType": "relationship",
+        "~start": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~end": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~type": "DEPARTURE_AIRPORT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "name": "EIN736"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Dublin International Airport",
+          "code": "DUB"
+        }
+      },
+      "q": {
+        "~id": "d86c8b8f-a7d1-4415-a958-c82e7a2581140",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~type": "ARRIVAL_AIRPORT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "043025ec-41e6-4952-b849-4c2bec29d0c90",
+        "~entityType": "relationship",
+        "~start": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "ARRIVAL_AIRPORT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "name": "EIN736"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "d93fe57c-d352-4c7c-9c79-37a3776a77c08",
+        "~entityType": "relationship",
+        "~start": "0482fe23-fca6-4a73-a589-ca4d4e1ef11e0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "DEPARTURE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "0482fe23-fca6-4a73-a589-ca4d4e1ef11e0",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "duration": "3h",
+          "departureTime": "10:15",
+          "name": "FlightOption1Return",
+          "arrivalTime": "12:15",
+          "id": "FlightOption1Return"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "b8217084-fd02-4ed1-8ff2-28cb0edd93bf8",
+        "~entityType": "relationship",
+        "~start": "b185936d-3911-4914-870b-c1400936962a0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "DEPARTURE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "b185936d-3911-4914-870b-c1400936962a0",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "duration": "3h",
+          "departureTime": "10:15",
+          "name": "FlightOption2Return",
+          "arrivalTime": "12:15",
+          "id": "FlightOption2Return"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Dublin International Airport",
+          "code": "DUB"
+        }
+      },
+      "q": {
+        "~id": "26a6bd60-97cc-4e50-b996-f38b9e94a6e70",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~type": "ARRIVAL",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "8d889bbc-ed6a-4403-b181-b55e10f273495",
+        "~entityType": "relationship",
+        "~start": "91b3d09e-fa60-4ee0-9cf3-127a93c4a2ad0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "ARRIVAL",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "91b3d09e-fa60-4ee0-9cf3-127a93c4a2ad0",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "duration": "2h45m",
+          "name": "FlightOption1",
+          "price": 158,
+          "id": "FlightOption1",
+          "emissionReduction": 33,
+          "departureTime": "07:15",
+          "arrivalTime": "11:00",
+          "source_of": "6fd8f780-ed3c-49f2-bb80-3823ff339e4a",
+          "emissions": "27% less CO2e",
+          "totalCost": "\u20ac150",
+          "CO2Emissions": "27% less CO2e than a typical flight"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "8780a365-8ec3-4262-b67d-2eabafa174219",
+        "~entityType": "relationship",
+        "~start": "59239c35-d695-4520-a1a6-78aecf575a280",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "ARRIVAL",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "59239c35-d695-4520-a1a6-78aecf575a280",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "duration": "2h45m",
+          "name": "FlightOption2",
+          "price": 149,
+          "id": "FlightOption2",
+          "emissionReduction": 27,
+          "departureTime": "18:15",
+          "arrivalTime": "22:00",
+          "source_of": "6fd8f780-ed3c-49f2-bb80-3823ff339e4a",
+          "emissions": "27% less CO2e",
+          "totalCost": "\u20ac133",
+          "CO2Emissions": "27% less CO2e than a typical flight"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "82e9bb07-4143-41fc-8f78-caa46ba346610",
+        "~entityType": "relationship",
+        "~start": "3327990c-a314-423c-9c35-2aab6f4cb8430",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "location",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "3327990c-a314-423c-9c35-2aab6f4cb8430",
+        "~entityType": "node",
+        "~labels": ["Service"],
+        "~properties": {
+          "driverAgeRange": "30-65",
+          "currency": "EUR",
+          "name": "Car Rental",
+          "price": 170.41,
+          "driverCountryOfResidence": "Ireland",
+          "location": "Palma de Mallorca Airport",
+          "pickupDate": "2024-09-11T11:00:00",
+          "pickUpDate": "2024-09-11T11:00:00",
+          "dropoffDate": "2024-09-11T11:00:00",
+          "dropOffDate": "2024-09-11T11:00:00"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "d6c820fd-6fe2-4daa-8738-16ea4c7611110",
+        "~entityType": "relationship",
+        "~start": "d1052731-53cc-48d7-9f49-ecd0224892ca0",
+        "~end": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~type": "OPERATES",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "d1052731-53cc-48d7-9f49-ecd0224892ca0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Ryanair",
+          "country": "Ireland",
+          "id": "Ryanair"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "e36436e9-6d7b-467c-9e55-316ecff9fe600",
+        "~entityType": "relationship",
+        "~start": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~end": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~type": "OPERATES",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Dublin International Airport",
+          "code": "DUB"
+        }
+      },
+      "q": {
+        "~id": "d4f7ce16-d912-4c7e-a203-24005e6f6eac0",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~type": "DEPARTS_FROM",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Dublin International Airport",
+          "code": "DUB"
+        }
+      },
+      "q": {
+        "~id": "b4681352-41af-4253-9b31-b078706affc70",
+        "~entityType": "relationship",
+        "~start": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~end": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~type": "DEPARTS_FROM",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "name": "EIN736"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "d122557a-666e-4da3-afdd-ed09edd984462",
+        "~entityType": "relationship",
+        "~start": "0482fe23-fca6-4a73-a589-ca4d4e1ef11e0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "DEPARTS_FROM",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "0482fe23-fca6-4a73-a589-ca4d4e1ef11e0",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "duration": "3h",
+          "departureTime": "10:15",
+          "name": "FlightOption1Return",
+          "arrivalTime": "12:15",
+          "id": "FlightOption1Return"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "b3e33e75-a510-4b0e-b399-d778a06d6dd02",
+        "~entityType": "relationship",
+        "~start": "b185936d-3911-4914-870b-c1400936962a0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "DEPARTS_FROM",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "b185936d-3911-4914-870b-c1400936962a0",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "duration": "3h",
+          "departureTime": "10:15",
+          "name": "FlightOption2Return",
+          "arrivalTime": "12:15",
+          "id": "FlightOption2Return"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "e4884e04-6e41-4d04-a666-9e31cbc61bd91",
+        "~entityType": "relationship",
+        "~start": "91b3d09e-fa60-4ee0-9cf3-127a93c4a2ad0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "ARRIVES_AT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "91b3d09e-fa60-4ee0-9cf3-127a93c4a2ad0",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "duration": "2h45m",
+          "name": "FlightOption1",
+          "price": 158,
+          "id": "FlightOption1",
+          "emissionReduction": 33,
+          "departureTime": "07:15",
+          "arrivalTime": "11:00",
+          "source_of": "6fd8f780-ed3c-49f2-bb80-3823ff339e4a",
+          "emissions": "27% less CO2e",
+          "totalCost": "\u20ac150",
+          "CO2Emissions": "27% less CO2e than a typical flight"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "07784cab-7544-4797-9689-41732ff039aa1",
+        "~entityType": "relationship",
+        "~start": "59239c35-d695-4520-a1a6-78aecf575a280",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "ARRIVES_AT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "59239c35-d695-4520-a1a6-78aecf575a280",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "duration": "2h45m",
+          "name": "FlightOption2",
+          "price": 149,
+          "id": "FlightOption2",
+          "emissionReduction": 27,
+          "departureTime": "18:15",
+          "arrivalTime": "22:00",
+          "source_of": "6fd8f780-ed3c-49f2-bb80-3823ff339e4a",
+          "emissions": "27% less CO2e",
+          "totalCost": "\u20ac133",
+          "CO2Emissions": "27% less CO2e than a typical flight"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "f577f2b6-1839-4518-b3e9-e1da4493f32c0",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "ARRIVES_AT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "cd33e544-3d05-495a-9097-42d4236539220",
+        "~entityType": "relationship",
+        "~start": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "ARRIVES_AT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "name": "EIN736"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "d221ef48-15ba-4488-899a-79cd40c2b66f0",
+        "~entityType": "relationship",
+        "~start": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~end": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~type": "FLIGHT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~entityType": "node",
+        "~labels": ["Aircraft"],
+        "~properties": {
+          "name": "Airbus A320",
+          "aircraftType": "Twin-Jet"
+        }
+      },
+      "q": {
+        "~id": "589470df-649d-4fa4-8d95-91352348139e0",
+        "~entityType": "relationship",
+        "~start": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~end": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~type": "HAS_AIRCRAFT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "name": "EIN736"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~entityType": "node",
+        "~labels": ["Aircraft"],
+        "~properties": {
+          "name": "Airbus A320",
+          "aircraftType": "Twin-Jet"
+        }
+      },
+      "q": {
+        "~id": "823d8846-0b2b-4c88-8a24-5c4aba5f78720",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~type": "HAS_AIRCRAFT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "e1912a85-d9b7-445d-910f-1188d5dab7221",
+        "~entityType": "relationship",
+        "~start": "c4045f23-154f-4bdb-9191-a269b3d17c2a0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "HAS_AIRPORT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "c4045f23-154f-4bdb-9191-a269b3d17c2a0",
+        "~entityType": "node",
+        "~labels": ["City"],
+        "~properties": {
+          "name": "Palma de Mallorca",
+          "id": "dbr:Palma_de_Mallorca",
+          "label": "Palma de Mallorca",
+          "partOf": "Balearic Islands",
+          "abstract": "Palma de Mallorca is the capital city of the Balearic Islands."
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "094f04df-7e5c-4591-8eb3-eab800d172d50",
+        "~entityType": "relationship",
+        "~start": "617217ce-4238-4797-8c09-89beff005b8f0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "OPERATES_IN",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "617217ce-4238-4797-8c09-89beff005b8f0",
+        "~entityType": "node",
+        "~labels": ["Company"],
+        "~properties": {
+          "name": "Sixt",
+          "industry": "Car rental",
+          "id": "dbr:Sixt"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "d0fecbbb-d410-4898-8762-22d84f7b41720",
+        "~entityType": "relationship",
+        "~start": "617217ce-4238-4797-8c09-89beff005b8f0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "OPERATES_AT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "617217ce-4238-4797-8c09-89beff005b8f0",
+        "~entityType": "node",
+        "~labels": ["Company"],
+        "~properties": {
+          "name": "Sixt",
+          "industry": "Car rental",
+          "id": "dbr:Sixt"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~entityType": "node",
+        "~labels": ["Aircraft"],
+        "~properties": {
+          "name": "Airbus A320",
+          "aircraftType": "Twin-Jet"
+        }
+      },
+      "q": {
+        "~id": "5ac41563-2394-4155-8013-49dedd7286ae0",
+        "~entityType": "relationship",
+        "~start": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~end": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~type": "AIRCRAFT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "name": "EIN736"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "6b1db06b-a9ca-49d0-b658-6b1ec3f17e540",
+        "~entityType": "relationship",
+        "~start": "161c1907-3aab-4d27-bd42-a27bd5f1fbab0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "pickupLocation",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "161c1907-3aab-4d27-bd42-a27bd5f1fbab0",
+        "~entityType": "node",
+        "~labels": ["Reservation"],
+        "~properties": {
+          "name": "dbr:Booking",
+          "id": "dbr:Booking",
+          "pickupDate": "2024-10-12T22:00:00",
+          "returnDate": "2024-10-19T20:00:00",
+          "refundPolicy": "Full refund if canceled at least 48 hours before pick-up"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      },
+      "q": {
+        "~id": "c5a1b2d7-890b-4a6b-9a1a-df6a34eb2cf50",
+        "~entityType": "relationship",
+        "~start": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~end": "3e9e9c57-86f8-4d28-ad9e-104d10efbf250",
+        "~type": "HUB",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "3e9e9c57-86f8-4d28-ad9e-104d10efbf250",
+        "~entityType": "node",
+        "~labels": ["Dublin_Airport"],
+        "~properties": {
+          "name": "Dublin Airport"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      },
+      "q": {
+        "~id": "219767e9-675c-4726-a471-d260c30bec930",
+        "~entityType": "relationship",
+        "~start": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~end": "1d440b3b-03b7-4bc8-b8ee-4e6d8f135b9b0",
+        "~type": "ROUTE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "1d440b3b-03b7-4bc8-b8ee-4e6d8f135b9b0",
+        "~entityType": "node",
+        "~labels": ["Seasonal_Route"],
+        "~properties": {
+          "routeName": "Dublin to Palma Majorca"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      },
+      "q": {
+        "~id": "e36436e9-6d7b-467c-9e55-316ecff9fe600",
+        "~entityType": "relationship",
+        "~start": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~end": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~type": "OPERATES",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      },
+      "q": {
+        "~id": "166a0745-adba-4ab7-8bb6-f3980b3cc6d50",
+        "~entityType": "relationship",
+        "~start": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~end": "7eec1715-acda-4610-b152-3b917b32b7cb0",
+        "~type": "FLIGHT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "7eec1715-acda-4610-b152-3b917b32b7cb0",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "duration": "PT2H45M",
+          "hasTravelTime": "2h 9m",
+          "price": 134,
+          "domain": "dassie_subject",
+          "emissionReduction": 27,
+          "departureTime": "07:05",
+          "arrivalTime": "10:50",
+          "flightNumber": "EIN736",
+          "date": "2023-10-19",
+          "actualDepartureTime": "2024-09-12T16:37:00Z",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "emissions": "27% less CO2e",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "407"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      },
+      "q": {
+        "~id": "d221ef48-15ba-4488-899a-79cd40c2b66f0",
+        "~entityType": "relationship",
+        "~start": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~end": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~type": "FLIGHT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      },
+      "q": {
+        "~id": "037b5894-6289-4084-a38c-1ce084835aad0",
+        "~entityType": "relationship",
+        "~start": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~end": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~type": "FLIGHT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "c31410d9-840b-4f2f-8021-8d3558bff4840",
+        "~entityType": "node",
+        "~labels": ["Flight"],
+        "~properties": {
+          "name": "EIN736"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "4a00110d-ee99-43d6-a753-e6caf668e5610",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "d1052731-53cc-48d7-9f49-ecd0224892ca0",
+        "~type": "AIRLINE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "d1052731-53cc-48d7-9f49-ecd0224892ca0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Ryanair",
+          "country": "Ireland",
+          "id": "Ryanair"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "135ae527-d3bc-46d2-9c21-027452a3c5530",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~type": "AIRLINE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "8341c5f1-1276-4ba9-90e5-5b220d6539e70",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "01a7f802-29f9-4c53-b6a8-1f2de7f26c420",
+        "~type": "DEPARTURE_AIRPORT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "01a7f802-29f9-4c53-b6a8-1f2de7f26c420",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Faro Airport"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "d86c8b8f-a7d1-4415-a958-c82e7a2581140",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~type": "ARRIVAL_AIRPORT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Dublin International Airport",
+          "code": "DUB"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "0120ddb5-6f56-454e-8e60-a342b16b05b50",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "5e0c91a4-dc34-4db0-8dc1-f4885a0129430",
+        "~type": "HAS_DURATION",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "5e0c91a4-dc34-4db0-8dc1-f4885a0129430",
+        "~entityType": "node",
+        "~labels": ["Duration"],
+        "~properties": {
+          "period": "Jan 2025 - Jun 2025",
+          "value": "PT10M",
+          "time": "PT2H9M"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "ca429f20-8926-4604-855d-0150dcef50860",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "01a7f802-29f9-4c53-b6a8-1f2de7f26c420",
+        "~type": "DEPARTURE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "01a7f802-29f9-4c53-b6a8-1f2de7f26c420",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Faro Airport"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "26a6bd60-97cc-4e50-b996-f38b9e94a6e70",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~type": "ARRIVAL",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Dublin International Airport",
+          "code": "DUB"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "d4f7ce16-d912-4c7e-a203-24005e6f6eac0",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~type": "DEPARTS_FROM",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Dublin International Airport",
+          "code": "DUB"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "f577f2b6-1839-4518-b3e9-e1da4493f32c0",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~type": "ARRIVES_AT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "823d8846-0b2b-4c88-8a24-5c4aba5f78720",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~type": "HAS_AIRCRAFT",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~entityType": "node",
+        "~labels": ["Aircraft"],
+        "~properties": {
+          "name": "Airbus A320",
+          "aircraftType": "Twin-Jet"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "5321cd28-0c3b-4af9-b9b2-ecece33fbf920",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~type": "DEPARTURE_TIME",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~entityType": "node",
+        "~labels": ["DateTime"],
+        "~properties": {
+          "value": "2024-09-12T16:37:00Z"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "0096b537-0f06-41a4-9218-5bae2f0d0f2f0",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~type": "ARRIVAL_TIME",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~entityType": "node",
+        "~labels": ["DateTime"],
+        "~properties": {
+          "value": "2024-09-12T16:37:00Z"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "f8d47a98-783e-46af-a29b-a52afcd04f550",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "5e0c91a4-dc34-4db0-8dc1-f4885a0129430",
+        "~type": "DURATION",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "5e0c91a4-dc34-4db0-8dc1-f4885a0129430",
+        "~entityType": "node",
+        "~labels": ["Duration"],
+        "~properties": {
+          "period": "Jan 2025 - Jun 2025",
+          "value": "PT10M",
+          "time": "PT2H9M"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "de73d415-f7fe-4354-8c07-b9451744b0930",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~type": "SCHEDULED_DEPARTURE_TIME",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~entityType": "node",
+        "~labels": ["DateTime"],
+        "~properties": {
+          "value": "2024-09-12T16:37:00Z"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "b79f3bfe-5fea-4542-aa1c-126c560fcf0d0",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~type": "SCHEDULED_ARRIVAL_TIME",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~entityType": "node",
+        "~labels": ["DateTime"],
+        "~properties": {
+          "value": "2024-09-12T16:37:00Z"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "343f631d-4f68-4943-b8a8-94a618c9dbca0",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~type": "ACTUAL_ARRIVAL_TIME",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~entityType": "node",
+        "~labels": ["DateTime"],
+        "~properties": {
+          "value": "2024-09-12T16:37:00Z"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "218c6191-5105-4645-9794-7e0fc65a68950",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~type": "ACTUAL_DEPARTURE_TIME",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "b406b6fb-857b-4c04-881b-6d44c7128bdb0",
+        "~entityType": "node",
+        "~labels": ["DateTime"],
+        "~properties": {
+          "value": "2024-09-12T16:37:00Z"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "50ad75f4-b062-47ce-8676-3540d88945340",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "5e0c91a4-dc34-4db0-8dc1-f4885a0129430",
+        "~type": "TAXI_TIME",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "5e0c91a4-dc34-4db0-8dc1-f4885a0129430",
+        "~entityType": "node",
+        "~labels": ["Duration"],
+        "~properties": {
+          "period": "Jan 2025 - Jun 2025",
+          "value": "PT10M",
+          "time": "PT2H9M"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~entityType": "node",
+        "~labels": ["AirlineFlight"],
+        "~properties": {
+          "duration": "PT2H9M",
+          "hasTravelTime": "2h 9m",
+          "status": "on time",
+          "departureTime": "2024-09-12T16:22:00Z",
+          "arrivalTime": "2024-09-12T19:31:00Z",
+          "flightNumber": "EIN736",
+          "actualDepartureTime": "2024-09-12T16:22:00Z",
+          "airline": "Aer Lingus",
+          "departureAirport": "Faro Airport",
+          "arrivalAirport": "Dublin International Airport",
+          "scheduledDepartureTime": "2024-09-12T16:20:00Z",
+          "scheduledArrivalTime": "2024-09-12T20:05:00Z",
+          "actualArrivalTime": "2024-09-12T19:31:00Z",
+          "averageDelay": "Less than 10 minutes",
+          "hasFlightNumber": "EIN736",
+          "hasDepartureGate": "GATE 407"
+        }
+      },
+      "q": {
+        "~id": "fd30f743-d20d-41b0-aa18-08bfdaa957a60",
+        "~entityType": "relationship",
+        "~start": "8830032f-e2e9-4878-a73d-c8c873b3483f0",
+        "~end": "5e0c91a4-dc34-4db0-8dc1-f4885a0129430",
+        "~type": "AVERAGE_DELAY",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "5e0c91a4-dc34-4db0-8dc1-f4885a0129430",
+        "~entityType": "node",
+        "~labels": ["Duration"],
+        "~properties": {
+          "period": "Jan 2025 - Jun 2025",
+          "value": "PT10M",
+          "time": "PT2H9M"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Dublin International Airport",
+          "code": "DUB"
+        }
+      },
+      "q": {
+        "~id": "5e2f52e4-daa6-4424-913d-19d27069f50f0",
+        "~entityType": "relationship",
+        "~start": "311e636f-6127-4ec9-8580-dca4a02fedd10",
+        "~end": "2b64a91a-dd49-44d9-a5c5-c3580104ea340",
+        "~type": "LOCATED_IN",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "2b64a91a-dd49-44d9-a5c5-c3580104ea340",
+        "~entityType": "node",
+        "~labels": ["Place"],
+        "~properties": {
+          "label": "Dublin",
+          "name": "Dublin",
+          "id": "Dublin"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "2604729c-e80f-4905-8c0e-8796894efd151",
+        "~entityType": "relationship",
+        "~start": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~end": "64d53441-a88c-4e93-8b58-ac7378b6b1dd0",
+        "~type": "LOCATED_IN",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "64d53441-a88c-4e93-8b58-ac7378b6b1dd0",
+        "~entityType": "node",
+        "~labels": ["Country"],
+        "~properties": {
+          "label": "Spain",
+          "name": "Spain",
+          "id": "dbr:Spain"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "23591109-c725-4e29-be33-7ad41e44c1ad0",
+        "~entityType": "relationship",
+        "~start": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~end": "e466f0ed-5f24-4637-bfc4-3dc94ad341c80",
+        "~type": "LOCATED_IN",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "e466f0ed-5f24-4637-bfc4-3dc94ad341c80",
+        "~entityType": "node",
+        "~labels": ["Place"],
+        "~properties": {
+          "name": "Palma de Mallorca"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "b4cdc6b7-ccd1-4141-b20a-68f56a5b2f940",
+        "~entityType": "relationship",
+        "~start": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~end": "9c93e656-0cf2-4b3e-9496-c21e2897f7270",
+        "~type": "HAS_FACILITY",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "9c93e656-0cf2-4b3e-9496-c21e2897f7270",
+        "~entityType": "node",
+        "~labels": ["Facility"],
+        "~properties": {
+          "name": "Wheelchair accessible entrance"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "a30edaaf-1171-449f-af68-6c439bed62671",
+        "~entityType": "relationship",
+        "~start": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~end": "3327990c-a314-423c-9c35-2aab6f4cb8430",
+        "~type": "HAS_RENTAL_SERVICE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "3327990c-a314-423c-9c35-2aab6f4cb8430",
+        "~entityType": "node",
+        "~labels": ["Service"],
+        "~properties": {
+          "driverAgeRange": "30-65",
+          "currency": "EUR",
+          "name": "Car Rental",
+          "price": 170.41,
+          "driverCountryOfResidence": "Ireland",
+          "location": "Palma de Mallorca Airport",
+          "pickupDate": "2024-09-11T11:00:00",
+          "pickUpDate": "2024-09-11T11:00:00",
+          "dropoffDate": "2024-09-11T11:00:00",
+          "dropOffDate": "2024-09-11T11:00:00"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~entityType": "node",
+        "~labels": ["Airport"],
+        "~properties": {
+          "name": "Palma de Mallorca Airport",
+          "code": "PMI",
+          "id": "dbr:Palma_de_Mallorca_Airport",
+          "region": "Balearic Islands",
+          "location": "Palma de Mallorca",
+          "country": "Spain",
+          "address": "Aeropuerto de Son Sant Joan, Terminal de Llegadas 07071 - Palma de Mallorca",
+          "source_of": "3d04cd9d-de07-49e7-be4b-78b3413f7284",
+          "label": "Palma de Mallorca Airport"
+        }
+      },
+      "q": {
+        "~id": "8cb65aad-dbd6-4b6a-a5e1-34fbf0006eed0",
+        "~entityType": "relationship",
+        "~start": "eca1df51-19ec-472c-9003-d2584a92746f0",
+        "~end": "1643cba9-1266-4507-a1bb-61d936c5d8860",
+        "~type": "HAS_FLIGHT_SCHEDULE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "1643cba9-1266-4507-a1bb-61d936c5d8860",
+        "~entityType": "node",
+        "~labels": ["FlightSchedule"],
+        "~properties": {
+          "departureTime": "2024-10-12T22:00:00",
+          "returnTime": "2024-10-19T20:00:00",
+          "passengerRating": 6.8,
+          "reviewCount": "39000+"
+        }
+      }
+    },
+    {
+      "b": {
+        "~id": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~entityType": "node",
+        "~labels": ["Aircraft"],
+        "~properties": {
+          "name": "Airbus A320",
+          "aircraftType": "Twin-Jet"
+        }
+      },
+      "q": {
+        "~id": "c3cea611-da37-4de7-aa0a-a8c899dfad330",
+        "~entityType": "relationship",
+        "~start": "5a32119c-7dc7-47f0-84ae-2eef3c30a6540",
+        "~end": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~type": "AIRLINE",
+        "~properties": {}
+      },
+      "c": {
+        "~id": "0605d6b9-0492-4083-801b-128935b0219c0",
+        "~entityType": "node",
+        "~labels": ["Airline"],
+        "~properties": {
+          "name": "Aer Lingus"
+        }
+      }
+    }
+  ]
+}

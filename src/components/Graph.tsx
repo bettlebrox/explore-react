@@ -8,6 +8,7 @@ import {
   useReactFlow,
   useNodesInitialized,
   Node,
+  Edge,
   BackgroundVariant,
   Controls,
   MiniMap,
@@ -16,31 +17,52 @@ import {
 } from '@xyflow/react';
 
 import '@xyflow/react/dist/style.css';
-
-const initialNodes = [
-  { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
-  { id: '2', position: { x: 0, y: 0 }, data: { label: '2' } },
-  { id: '3', position: { x: 0, y: 0 }, data: { label: '3' } },
-  { id: '4', position: { x: 0, y: 0 }, data: { label: '4' } },
-  { id: '5', position: { x: 0, y: 0 }, data: { label: '5' } },
-  { id: '6', position: { x: 0, y: 100 }, data: { label: '6' } },
-  { id: '7', position: { x: 0, y: 100 }, data: { label: '7' } },
-  { id: '8', position: { x: 0, y: 100 }, data: { label: '8' } },
-  { id: '9', position: { x: 0, y: 100 }, data: { label: '9' } },
-];
-const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2' },
-  { id: 'e1-3', source: '1', target: '3' },
-  { id: 'e1-4', source: '1', target: '4' },
-  { id: 'e1-5', source: '1', target: '5' },
-  { id: 'e6-7', source: '6', target: '7' },
-  { id: 'e6-8', source: '6', target: '8' },
-  { id: 'e6-9', source: '6', target: '9' },
-];
-
+import graphData from './graph.json';
 import { collide } from './collide.js';
 
 import '@xyflow/react/dist/style.css';
+import EntityNode from './EntityNode.js';
+
+const res = graphData;
+const uniqueNodeIds = new Set(); // Track unique node IDs
+const uniqueEdgeIds = new Set(); // Track unique edge IDs
+const initialNodes: Node[] = [];
+const initialEdges: Edge[] = [];
+interface GraphResult {
+  b: {
+    '~id': string;
+    '~entityType'?: string;
+    '~labels'?: string[];
+    '~properties'?: Record<string, unknown>;
+  };
+  c: {
+    '~id': string;
+    '~entityType'?: string;
+    '~labels'?: string[];
+    '~properties'?: Record<string, unknown>;
+  };
+  q: {
+    '~id': string;
+    '~start': string;
+    '~end': string;
+  };
+}
+
+res.results.forEach((result: GraphResult) => {
+  // Check if the node is unique before pushing
+  if (!uniqueNodeIds.has(result.b['~id'])) {
+    uniqueNodeIds.add(result.b['~id']);
+    initialNodes.push({ id: result.b['~id'], type: 'entity', position: { x: 0, y: 0 }, data: result.b });
+  }
+  if (!uniqueNodeIds.has(result.c['~id'])) {
+    uniqueNodeIds.add(result.c['~id']);
+    initialNodes.push({ id: result.c['~id'], type: 'entity', position: { x: 0, y: 0 }, data: result.c });
+  }
+  if (!uniqueEdgeIds.has(result.q['~id'])) {
+    uniqueEdgeIds.add(result.q['~id']);
+    initialEdges.push({ id: result.q['~id'], source: result.q['~start'], target: result.q['~end'] });
+  }
+});
 
 type ForceNode = Node & {
   fx?: number;
@@ -162,6 +184,7 @@ const useLayoutedElements = (): LayoutedElementsReturn => {
 const LayoutFlow = () => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
+  const nodeTypes = useMemo(() => ({ entity: EntityNode }), []);
   const [initialized, { toggle, isRunning }, dragEvents] = useLayoutedElements();
   useEffect(() => {
     if (initialized) {
@@ -182,6 +205,7 @@ const LayoutFlow = () => {
       onNodeDragStop={dragEvents.stop}
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
+      nodeTypes={nodeTypes}
     >
       <Controls />
       <MiniMap />
@@ -195,7 +219,7 @@ const LayoutFlow = () => {
 
 export default function Graph() {
   return (
-    <div style={{ width: '75vw', height: '50vh' }}>
+    <div style={{ width: '75vw', height: '75vh' }}>
       <ReactFlowProvider>
         <LayoutFlow />
       </ReactFlowProvider>
