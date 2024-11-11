@@ -17,52 +17,15 @@ import {
 } from '@xyflow/react';
 
 import '@xyflow/react/dist/style.css';
-import graphData from './graph.json';
+
 import { collide } from './collide.js';
 
 import '@xyflow/react/dist/style.css';
 import EntityNode from './EntityNode.js';
+import { ThemeGraph } from '../interfaces/ThemeGraph.js';
+import { get } from 'aws-amplify/api';
+import { useQuery } from 'react-query';
 
-const res = graphData;
-const uniqueNodeIds = new Set(); // Track unique node IDs
-const uniqueEdgeIds = new Set(); // Track unique edge IDs
-const initialNodes: Node[] = [];
-const initialEdges: Edge[] = [];
-interface GraphResult {
-  b: {
-    '~id': string;
-    '~entityType'?: string;
-    '~labels'?: string[];
-    '~properties'?: Record<string, unknown>;
-  };
-  c: {
-    '~id': string;
-    '~entityType'?: string;
-    '~labels'?: string[];
-    '~properties'?: Record<string, unknown>;
-  };
-  q: {
-    '~id': string;
-    '~start': string;
-    '~end': string;
-  };
-}
-
-res.results.forEach((result: GraphResult) => {
-  // Check if the node is unique before pushing
-  if (!uniqueNodeIds.has(result.b['~id'])) {
-    uniqueNodeIds.add(result.b['~id']);
-    initialNodes.push({ id: result.b['~id'], type: 'entity', position: { x: 0, y: 0 }, data: result.b });
-  }
-  if (!uniqueNodeIds.has(result.c['~id'])) {
-    uniqueNodeIds.add(result.c['~id']);
-    initialNodes.push({ id: result.c['~id'], type: 'entity', position: { x: 0, y: 0 }, data: result.c });
-  }
-  if (!uniqueEdgeIds.has(result.q['~id'])) {
-    uniqueEdgeIds.add(result.q['~id']);
-    initialEdges.push({ id: result.q['~id'], source: result.q['~start'], target: result.q['~end'] });
-  }
-});
 
 type ForceNode = Node & {
   fx?: number;
@@ -181,11 +144,12 @@ const useLayoutedElements = (): LayoutedElementsReturn => {
   }, [initialized, dragEvents, getNodes, getEdges, setNodes, fitView]);
 };
 
-const LayoutFlow = () => {
+const LayoutFlow = ({ initialNodes, initialEdges }: { initialNodes: Node[], initialEdges: Edge[] }) => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
   const nodeTypes = useMemo(() => ({ entity: EntityNode }), []);
   const [initialized, { toggle, isRunning }, dragEvents] = useLayoutedElements();
+
   useEffect(() => {
     if (initialized) {
       toggle();
@@ -217,11 +181,36 @@ const LayoutFlow = () => {
   );
 };
 
-export default function Graph() {
+export default function Graph({ title }: { title: string | undefined }) {
+  const getThemeGraph = async () => {
+    const { body } = await get({
+      apiName: 'Dassie',
+      path: '/api/themes/' + title + '/graph',
+    }).response;
+    const themeGraph = JSON.parse(await body.text()) as ThemeGraph;
+    return themeGraph;
+  };
+  const {
+    data: themeGraph,
+    error: error,
+  } = useQuery<ThemeGraph>(title ? title + '/graph' : 'themeGraph', getThemeGraph, {
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+  });
+  if (error) {
+    console.log(error);
+  }
   return (
     <div style={{ width: '75vw', height: '75vh' }}>
       <ReactFlowProvider>
-        <LayoutFlow />
+        {themeGraph && (
+          <LayoutFlow 
+            initialNodes={themeGraph.nodes as Node[]} 
+            initialEdges={themeGraph.edges as Edge[]} 
+          />
+        )}
+        {!themeGraph && <div>Loading...</div>}
       </ReactFlowProvider>
     </div>
   );

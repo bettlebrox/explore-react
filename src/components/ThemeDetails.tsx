@@ -43,6 +43,7 @@ export function ThemeDetails() {
     }
     return themeDetail;
   };
+
   const deleteRelated = useMutation({
     mutationFn: async (articleId: string) => {
       if (themeTitle) {
@@ -135,7 +136,7 @@ export function ThemeDetails() {
           </Card>
         </Grid>
         <Grid item={true} xs={12}>
-          <Graph />
+          <Graph title={themeTitle} />
         </Grid>
         <Grid item={true} xs={12}>
           <Card>

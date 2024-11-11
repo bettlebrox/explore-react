@@ -7,13 +7,17 @@ interface EntityNodeData {
   '~labels'?: string[];
 }
 
+
+
 export default function EntityNode({ data }: { data: EntityNodeData }) {
   return (
     <div
       style={{
         padding: '10px',
         borderRadius: '5px',
-        background: 'white',
+        background: data['~labels']?.[0] ? 
+          `hsl(${Math.abs(data['~labels'][0].split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)) % 360}, 70%, 95%)` :
+          'white',
         border: '1px solid #ddd',
         minWidth: '150px',
       }}
@@ -25,6 +29,7 @@ export default function EntityNode({ data }: { data: EntityNodeData }) {
           fontWeight: 'bold',
           textAlign: 'center',
         }}
+        title={JSON.stringify(data, null, 2)}
       >
         {data['~properties']?.name || data['~labels']?.[0] || 'Unnamed Entity'}
       </div>
