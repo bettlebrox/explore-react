@@ -1,10 +1,5 @@
-import {
-  BaseEdge,
-  EdgeLabelRenderer,
-  getBezierPath,
-  type EdgeProps,
-} from '@xyflow/react';
- 
+import { BaseEdge, EdgeLabelRenderer, getBezierPath, type EdgeProps } from '@xyflow/react';
+
 export default function RelatedEdge({
   sourceX,
   sourceY,
@@ -23,7 +18,7 @@ export default function RelatedEdge({
     targetY,
     targetPosition,
   });
- 
+
   return (
     <>
       <BaseEdge path={edgePath} markerEnd={markerEnd} style={{ stroke: 'blue' }} />
@@ -34,10 +29,10 @@ export default function RelatedEdge({
             position: 'absolute',
             left: labelX,
             top: labelY,
-            transform: 'translate(-50%, -50%)'
+            transform: 'translate(-50%, -50%)',
           }}
         >
-          <p className="nodrag nopan" >{(data?.['~type'] as string | undefined)?.toLowerCase()}</p>
+          <p className="nodrag nopan">{(data?.['~type'] as string | undefined)?.toLowerCase()}</p>
         </div>
       </EdgeLabelRenderer>
     </>

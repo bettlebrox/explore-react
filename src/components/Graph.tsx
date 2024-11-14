@@ -87,7 +87,7 @@ const useLayoutedElements = (): LayoutedElementsReturn => {
 
     simulation.nodes(nodes).force(
       'link',
-      forceLink(edges.filter(edge => edge.data?.['~type'] !== 'SOURCE_OF' ))
+      forceLink(edges.filter((edge) => edge.data?.['~type'] !== 'SOURCE_OF'))
         .id((d: SimulationNodeDatum) => (d as ForceNode).id)
         .strength(0.05)
         .distance(100),
@@ -150,7 +150,7 @@ const LayoutFlow = ({ initialNodes, initialEdges }: { initialNodes: Node[]; init
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
   const nodeTypes = useMemo(() => ({ entity: EntityNode, article: ArticleNode }), []);
-  const edgeTypes = useMemo(() => ({ source: SourceEdge, related: RelatedEdge }), []); 
+  const edgeTypes = useMemo(() => ({ source: SourceEdge, related: RelatedEdge }), []);
   const [initialized, { toggle, isRunning }, dragEvents] = useLayoutedElements();
 
   useEffect(() => {
@@ -211,13 +211,14 @@ export default function Graph({ title }: { title: string | undefined }) {
       {themeGraph && themeGraph?.nodes.length === 0 && themeGraph?.edges.length === 0 && <div></div>}
       {themeGraph && themeGraph?.nodes.length > 0 && themeGraph?.edges.length > 0 && (
         <div style={{ width: '75vw', height: '75vh' }}>
-      <ReactFlowProvider>
-        {themeGraph && (
-          <LayoutFlow initialNodes={themeGraph.nodes as Node[]} initialEdges={themeGraph.edges as Edge[]} />
-        )}
-        {!themeGraph && <div>Loading...</div>}
-        </ReactFlowProvider>
-      </div>)}
+          <ReactFlowProvider>
+            {themeGraph && (
+              <LayoutFlow initialNodes={themeGraph.nodes as Node[]} initialEdges={themeGraph.edges as Edge[]} />
+            )}
+            {!themeGraph && <div>Loading...</div>}
+          </ReactFlowProvider>
+        </div>
+      )}
     </>
   );
 }

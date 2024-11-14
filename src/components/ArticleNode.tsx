@@ -27,9 +27,22 @@ export default function ArticleNode({ data }: { data: EntityNodeData }) {
           fontWeight: 'bold',
           textAlign: 'center',
         }}
-        title={JSON.stringify(data, ['title', '~labels', '~properties', 'domain', 'created_at', 'updated_at', 'url'], 2)}
+        title={JSON.stringify(
+          data,
+          ['title', '~labels', '~properties', 'domain', 'created_at', 'updated_at', 'url'],
+          2,
+        )}
       >
-        <a href={data['~properties']?.url}>{decodeURIComponent((data['~properties']?.title || data['~properties']?.name || data['~labels']?.[0] || 'Unnamed Entity').replace(/\+/g, ' '))}</a>
+        <a href={data['~properties']?.url}>
+          {decodeURIComponent(
+            (
+              data['~properties']?.title ||
+              data['~properties']?.name ||
+              data['~labels']?.[0] ||
+              'Unnamed Entity'
+            ).replace(/\+/g, ' '),
+          )}
+        </a>
       </div>
       <Handle type="source" position={Position.Bottom} />
     </div>
