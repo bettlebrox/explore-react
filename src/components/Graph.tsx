@@ -25,6 +25,9 @@ import EntityNode from './EntityNode.js';
 import { ThemeGraph } from '../interfaces/ThemeGraph.js';
 import { get } from 'aws-amplify/api';
 import { useQuery } from 'react-query';
+import ArticleNode from './ArticleNode.js';
+import SourceEdge from './SourceEdge.js';
+import RelatedEdge from './RelatedEdge.js';
 
 type ForceNode = Node & {
   fx?: number;
@@ -84,7 +87,7 @@ const useLayoutedElements = (): LayoutedElementsReturn => {
 
     simulation.nodes(nodes).force(
       'link',
-      forceLink(edges)
+      forceLink(edges.filter(edge => edge.data?.['~type'] !== 'SOURCE_OF' ))
         .id((d: SimulationNodeDatum) => (d as ForceNode).id)
         .strength(0.05)
         .distance(100),
@@ -146,7 +149,8 @@ const useLayoutedElements = (): LayoutedElementsReturn => {
 const LayoutFlow = ({ initialNodes, initialEdges }: { initialNodes: Node[]; initialEdges: Edge[] }) => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
-  const nodeTypes = useMemo(() => ({ entity: EntityNode }), []);
+  const nodeTypes = useMemo(() => ({ entity: EntityNode, article: ArticleNode }), []);
+  const edgeTypes = useMemo(() => ({ source: SourceEdge, related: RelatedEdge }), []); 
   const [initialized, { toggle, isRunning }, dragEvents] = useLayoutedElements();
 
   useEffect(() => {
@@ -154,7 +158,7 @@ const LayoutFlow = ({ initialNodes, initialEdges }: { initialNodes: Node[]; init
       toggle();
       const timer = setTimeout(() => {
         toggle();
-      }, 3000);
+      }, 4000);
       return () => clearTimeout(timer);
     }
   }, [initialized, toggle]);
@@ -169,6 +173,7 @@ const LayoutFlow = ({ initialNodes, initialEdges }: { initialNodes: Node[]; init
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       nodeTypes={nodeTypes}
+      edgeTypes={edgeTypes}
     >
       <Controls />
       <MiniMap />
@@ -202,13 +207,17 @@ export default function Graph({ title }: { title: string | undefined }) {
     console.log(error);
   }
   return (
-    <div style={{ width: '75vw', height: '75vh' }}>
+    <>
+      {themeGraph && themeGraph?.nodes.length === 0 && themeGraph?.edges.length === 0 && <div></div>}
+      {themeGraph && themeGraph?.nodes.length > 0 && themeGraph?.edges.length > 0 && (
+        <div style={{ width: '75vw', height: '75vh' }}>
       <ReactFlowProvider>
         {themeGraph && (
           <LayoutFlow initialNodes={themeGraph.nodes as Node[]} initialEdges={themeGraph.edges as Edge[]} />
         )}
         {!themeGraph && <div>Loading...</div>}
-      </ReactFlowProvider>
-    </div>
+        </ReactFlowProvider>
+      </div>)}
+    </>
   );
 }
