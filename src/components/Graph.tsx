@@ -26,7 +26,6 @@ import { ThemeGraph } from '../interfaces/ThemeGraph.js';
 import { get } from 'aws-amplify/api';
 import { useQuery } from 'react-query';
 
-
 type ForceNode = Node & {
   fx?: number;
   fy?: number;
@@ -144,7 +143,7 @@ const useLayoutedElements = (): LayoutedElementsReturn => {
   }, [initialized, dragEvents, getNodes, getEdges, setNodes, fitView]);
 };
 
-const LayoutFlow = ({ initialNodes, initialEdges }: { initialNodes: Node[], initialEdges: Edge[] }) => {
+const LayoutFlow = ({ initialNodes, initialEdges }: { initialNodes: Node[]; initialEdges: Edge[] }) => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
   const nodeTypes = useMemo(() => ({ entity: EntityNode }), []);
@@ -190,14 +189,15 @@ export default function Graph({ title }: { title: string | undefined }) {
     const themeGraph = JSON.parse(await body.text()) as ThemeGraph;
     return themeGraph;
   };
-  const {
-    data: themeGraph,
-    error: error,
-  } = useQuery<ThemeGraph>(title ? title + '/graph' : 'themeGraph', getThemeGraph, {
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-  });
+  const { data: themeGraph, error: error } = useQuery<ThemeGraph>(
+    title ? title + '/graph' : 'themeGraph',
+    getThemeGraph,
+    {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+    },
+  );
   if (error) {
     console.log(error);
   }
@@ -205,10 +205,7 @@ export default function Graph({ title }: { title: string | undefined }) {
     <div style={{ width: '75vw', height: '75vh' }}>
       <ReactFlowProvider>
         {themeGraph && (
-          <LayoutFlow 
-            initialNodes={themeGraph.nodes as Node[]} 
-            initialEdges={themeGraph.edges as Edge[]} 
-          />
+          <LayoutFlow initialNodes={themeGraph.nodes as Node[]} initialEdges={themeGraph.edges as Edge[]} />
         )}
         {!themeGraph && <div>Loading...</div>}
       </ReactFlowProvider>
