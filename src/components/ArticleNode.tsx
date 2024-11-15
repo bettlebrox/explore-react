@@ -1,31 +1,40 @@
 import { Handle, Position } from '@xyflow/react';
+import { getFormattedDate } from '../utils/format';
+import { getBreadcrumbs } from '../utils/format';
+import { Box, Link, Typography } from '@mui/material';
 
 interface EntityNodeData {
   '~properties'?: {
     name?: string;
     title?: string;
     url?: string;
+    created_at?: string;
   };
   '~labels'?: string[];
 }
 
 export default function ArticleNode({ data }: { data: EntityNodeData }) {
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         padding: '10px',
         borderRadius: '5px',
-        background: 'red',
+        background: 'rgb(233, 251, 150)',
         border: '1px solid #ddd',
-        minWidth: '150px',
+        width: '150px',
       }}
     >
       <Handle type="target" position={Position.Top} />
-      <div
-        style={{
+      <Box
+        sx={{
           fontSize: '14px',
           fontWeight: 'bold',
           textAlign: 'center',
+          width: '100%',
+          overflow: 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'left',
         }}
         title={JSON.stringify(
           data,
@@ -33,18 +42,27 @@ export default function ArticleNode({ data }: { data: EntityNodeData }) {
           2,
         )}
       >
-        <a href={data['~properties']?.url}>
-          {decodeURIComponent(
-            (
-              data['~properties']?.title ||
-              data['~properties']?.name ||
-              data['~labels']?.[0] ||
-              'Unnamed Entity'
-            ).replace(/\+/g, ' '),
-          )}
-        </a>
-      </div>
+        <Link noWrap href={data['~properties']?.url}>
+          {(() => {
+            const text = decodeURIComponent(
+              (
+                data['~properties']?.title ||
+                data['~properties']?.name ||
+                data['~labels']?.[0] ||
+                'Unnamed Entity'
+              ).replace(/\+/g, ' '),
+            );
+            return text.length > 30 ? text.slice(0, 30) + '...' : text;
+          })()}
+        </Link>
+        <Typography noWrap variant="caption" color="text.secondary">
+          {getBreadcrumbs(data['~properties']?.url || '').join(' > ')}
+        </Typography>
+        <Typography variant="caption" color="text.secondary">
+          {getFormattedDate(data['~properties']?.created_at || '')}
+        </Typography>
+      </Box>
       <Handle type="source" position={Position.Bottom} />
-    </div>
+    </Box>
   );
 }

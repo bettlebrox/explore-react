@@ -8,7 +8,6 @@ export default function RelatedEdge({
   sourcePosition,
   targetPosition,
   markerEnd,
-  data,
 }: EdgeProps) {
   const [edgePath, labelX, labelY] = getBezierPath({
     sourceX,
@@ -31,9 +30,7 @@ export default function RelatedEdge({
             top: labelY,
             transform: 'translate(-50%, -50%)',
           }}
-        >
-          <p className="nodrag nopan">{(data?.['~type'] as string | undefined)?.toLowerCase()}</p>
-        </div>
+        ></div>
       </EdgeLabelRenderer>
     </>
   );

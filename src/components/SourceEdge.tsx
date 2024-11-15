@@ -8,8 +8,7 @@ export default function SourceEdge({
   sourcePosition,
   targetPosition,
   markerEnd,
-  onEdgeClick,
-}: EdgeProps & { onEdgeClick: () => void }) {
+}: EdgeProps) {
   const [edgePath, labelX, labelY] = getBezierPath({
     sourceX,
     sourceY,
@@ -21,7 +20,7 @@ export default function SourceEdge({
 
   return (
     <>
-      <BaseEdge path={edgePath} markerEnd={markerEnd} style={{ stroke: 'red' }} />
+      <BaseEdge path={edgePath} markerEnd={markerEnd} style={{ stroke: 'rgb(233, 251, 150)' }} />
       <EdgeLabelRenderer>
         <div
           className="button-edge__label nodrag nopan"
@@ -31,11 +30,7 @@ export default function SourceEdge({
             top: labelY,
             transform: 'translate(-50%, -50%)',
           }}
-        >
-          <button className="button-edge__button" onClick={onEdgeClick} style={{ background: 'transparent' }}>
-            ×
-          </button>
-        </div>
+        ></div>
       </EdgeLabelRenderer>
     </>
   );

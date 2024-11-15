@@ -1,8 +1,7 @@
 import { forceSimulation, forceLink, forceManyBody, forceX, forceY, SimulationNodeDatum } from 'd3-force';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ReactFlow,
-  Panel,
   useNodesState,
   useEdgesState,
   useReactFlow,
@@ -11,9 +10,9 @@ import {
   Edge,
   BackgroundVariant,
   Controls,
-  MiniMap,
   Background,
   ReactFlowProvider,
+  ControlButton,
 } from '@xyflow/react';
 
 import '@xyflow/react/dist/style.css';
@@ -28,6 +27,9 @@ import { useQuery } from 'react-query';
 import ArticleNode from './ArticleNode.js';
 import SourceEdge from './SourceEdge.js';
 import RelatedEdge from './RelatedEdge.js';
+import { faEyeSlash, faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type ForceNode = Node & {
   fx?: number;
@@ -49,12 +51,12 @@ type DragEvents = {
 };
 
 // Define a type for the return value of useLayoutedElements
-type LayoutedElementsReturn = [boolean, { toggle: () => void; isRunning: () => boolean }, DragEvents];
+type LayoutedElementsReturn = [boolean, (stop: boolean) => void, DragEvents];
 
 // Update the useLayoutedElements function return type
 const useLayoutedElements = (): LayoutedElementsReturn => {
   const { getNodes, setNodes, getEdges, fitView } = useReactFlow();
-
+  const running = useRef(false);
   const initialized = useNodesInitialized();
 
   // You can use these events if you want the flow to remain interactive while
@@ -79,18 +81,25 @@ const useLayoutedElements = (): LayoutedElementsReturn => {
       y: node.position.y,
     }));
     const edges = getEdges().map((edge) => edge);
-    let running = false;
 
     // If React Flow hasn't initialized our nodes with a width and height yet, or
     // if there are no nodes in the flow, then we can't run the simulation!
-    if (!initialized || nodes.length === 0) return [false, { toggle: () => {}, isRunning: () => false }, dragEvents];
+    if (!initialized || nodes.length === 0) return [false, () => {}, dragEvents];
 
     simulation.nodes(nodes).force(
       'link',
-      forceLink(edges.filter((edge) => edge.data?.['~type'] !== 'SOURCE_OF'))
+      forceLink(edges.filter((edge) => edge.type !== 'source'))
+        .id((d: SimulationNodeDatum) => (d as ForceNode).id)
+        .strength(0.5)
+        .distance(55),
+    );
+
+    simulation.nodes(nodes).force(
+      'sources',
+      forceLink(edges.filter((edge) => edge.type === 'source'))
         .id((d: SimulationNodeDatum) => (d as ForceNode).id)
         .strength(0.05)
-        .distance(100),
+        .distance(75),
     );
 
     // The tick function is called every animation frame while the simulation is
@@ -124,12 +133,12 @@ const useLayoutedElements = (): LayoutedElementsReturn => {
         // positions before we fit the viewport to the new layout.
         fitView();
         // If the simulation hasn't been stopped, schedule another tick.
-        if (running) tick();
+        if (running.current) tick();
       });
     };
 
-    const toggle = () => {
-      if (!running) {
+    const toggle = (run: boolean) => {
+      if (run && !running.current) {
         getNodes().forEach((node, index) => {
           const simNode = nodes[index];
           Object.assign(simNode, node);
@@ -137,35 +146,52 @@ const useLayoutedElements = (): LayoutedElementsReturn => {
           simNode.y = node.position.y;
         });
       }
-      running = !running;
-      running && window.requestAnimationFrame(tick);
+      running.current = run;
+      running.current && window.requestAnimationFrame(tick);
     };
 
-    const isRunning = () => running;
-    return [true, { toggle, isRunning }, dragEvents];
+    return [true, toggle, dragEvents];
   }, [initialized, dragEvents, getNodes, getEdges, setNodes, fitView]);
 };
 
 const LayoutFlow = ({ initialNodes, initialEdges }: { initialNodes: Node[]; initialEdges: Edge[] }) => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
+  const [showSourceNodes, setShowSourceNodes] = useState(true);
+  const [runSimulation, setRunSimulation] = useState(false);
   const nodeTypes = useMemo(() => ({ entity: EntityNode, article: ArticleNode }), []);
   const edgeTypes = useMemo(() => ({ source: SourceEdge, related: RelatedEdge }), []);
-  const [initialized, { toggle, isRunning }, dragEvents] = useLayoutedElements();
+  const [initialized, toggle, dragEvents] = useLayoutedElements();
 
+  const filteredNodes = showSourceNodes ? nodes : nodes.filter((node) => node.type !== 'article');
+  const runOnce = useRef(false);
   useEffect(() => {
-    if (initialized) {
-      toggle();
+    console.log('useEffect', runOnce.current);
+    if (initialized && !runOnce.current) {
+      runOnce.current = true;
+      setRunSimulation(true);
+      toggle(true);
       const timer = setTimeout(() => {
-        toggle();
-      }, 4000);
-      return () => clearTimeout(timer);
+        toggle(false);
+        setRunSimulation(false);
+      }, 5000);
+      return () => {
+        clearTimeout(timer);
+      };
     }
   }, [initialized, toggle]);
 
+  const toggleSourceNodes = () => {
+    setShowSourceNodes((prev) => !prev);
+  };
+  const toggleRunning = () => {
+    setRunSimulation((prev) => !prev);
+    toggle(!runSimulation);
+  };
+
   return (
     <ReactFlow
-      nodes={nodes}
+      nodes={filteredNodes}
       edges={edges}
       onNodeDragStart={dragEvents.start}
       onNodeDrag={dragEvents.drag}
@@ -175,12 +201,15 @@ const LayoutFlow = ({ initialNodes, initialEdges }: { initialNodes: Node[]; init
       nodeTypes={nodeTypes}
       edgeTypes={edgeTypes}
     >
-      <Controls />
-      <MiniMap />
+      <Controls>
+        <ControlButton onClick={toggleSourceNodes}>
+          {showSourceNodes ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
+        </ControlButton>
+        <ControlButton onClick={toggleRunning}>
+          {runSimulation ? <FontAwesomeIcon icon={faStop} /> : <FontAwesomeIcon icon={faPlay} />}
+        </ControlButton>
+      </Controls>
       <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
-      <Panel>
-        {initialized && <button onClick={toggle}>{isRunning() ? 'Stop' : 'Start'} force simulation</button>}
-      </Panel>
     </ReactFlow>
   );
 };
