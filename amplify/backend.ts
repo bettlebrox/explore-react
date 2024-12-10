@@ -14,6 +14,6 @@ const backend = defineBackend({
 backend.auth.resources.authenticatedUserIamRole.addToPrincipalPolicy(
   new PolicyStatement({
     actions: ['execute-api:Invoke'],
-    resources: ['arn:aws:execute-api:eu-west-1:559845934392:2eh5dqfti6/prod/*/*/*'],
+    resources: ['arn:aws:execute-api:eu-west-1:559845934392:t6pwh7x1a9/prod/*/*/*'],
   }),
 );
