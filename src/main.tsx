@@ -30,8 +30,8 @@ Amplify.configure({
       ...existingConfig.API?.REST,
       Dassie: {
         endpoint: import.meta.env.DEV
-          ? 'http://localhost:3000'
-          : 'https://2eh5dqfti6.execute-api.eu-west-1.amazonaws.com/prod',
+          ? 'http://127.0.0.1:3000'
+          : 'https://t6pwh7x1a9.execute-api.eu-west-1.amazonaws.com/prod',
         region: 'eu-west-1', // Optional
       },
     },
